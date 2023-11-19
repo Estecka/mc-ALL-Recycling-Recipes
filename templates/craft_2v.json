@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "${GROUP}",
+	"pattern": [
+		"#",
+		"#"
+	],
+	"key": {
+		"#": [
+			{ "item": "${INPUT}" }
+		]
+	},
+	"result": {
+		"item": "${OUTPUT}",
+		"count": ${COUNT}
+	}
+}

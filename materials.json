@@ -1,0 +1,502 @@
+{
+	"minecraft:acacia": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:andesite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:bamboo": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:bamboo_mosaic": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:birch": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:blackstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:cherry": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:cobbled_deepslate": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:cobblestone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:crimson": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:cut_red_sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab"
+		]
+	},
+	"minecraft:cut_sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab"
+		]
+	},
+	"minecraft:dark_oak": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:dark_prismarine": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:deepslate_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:deepslate_tile": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:diorite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:end_stone_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:exposed_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:granite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:jungle": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:mangrove": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:mossy_cobblestone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:mossy_stone_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:mud_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:nether": {
+		"raw": "_bricks",
+		"derivatives": [
+			"_brick_fence"
+		]
+	},
+	"minecraft:nether_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:oak": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:oxidized_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:polished_andesite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:polished_blackstone": {
+		"raw": "",
+		"derivatives": [
+			"_button",
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:polished_blackstone_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:polished_deepslate": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:polished_diorite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:polished_granite": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:prismarine_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:prismarine": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:purpur": {
+		"raw": "_block",
+		"derivatives": [
+			"_pillar",
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:quartz": {
+		"raw": "_block",
+		"derivatives": [
+			"_bricks",
+			"_pillar",
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:red_nether_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:red_sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:smooth_quartz": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:smooth_red_sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:smooth_sandstone": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:smooth_stone": {
+		"raw": "",
+		"derivatives": [
+			"_slab"
+		]
+	},
+	"minecraft:spruce": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:stone_brick": {
+		"raw": "s",
+		"derivatives": [
+			"_slab",
+			"_stairs",
+			"_wall"
+		]
+	},
+	"minecraft:stone": {
+		"raw": "",
+		"derivatives": [
+			"_button",
+			"_pressure_plate",
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:warped": {
+		"raw": "_planks",
+		"derivatives": [
+			"_button",
+			"_door",
+			"_fence",
+			"_fence_gate",
+			"_pressure_plate",
+			"_sign",
+			"_slab",
+			"_stairs",
+			"_trapdoor"
+		]
+	},
+	"minecraft:waxed_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:waxed_exposed_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:waxed_oxidized_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:waxed_weathered_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	},
+	"minecraft:weathered_cut_copper": {
+		"raw": "",
+		"derivatives": [
+			"_slab",
+			"_stairs"
+		]
+	}
+}

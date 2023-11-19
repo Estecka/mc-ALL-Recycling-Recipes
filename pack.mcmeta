@@ -1,0 +1,10 @@
+{
+	"pack":{
+		"pack_format": 12,
+		"supported_formats": [12, 18],
+		"description": [
+			"by ", {"text":"Estecka\n","color":"yellow"},
+			"v", {"text":"1.0.0","color":"gold"}
+		]
+	}
+}
