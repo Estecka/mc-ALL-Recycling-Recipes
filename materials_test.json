@@ -1,0 +1,24 @@
+{
+	"minecraft": [
+		{
+			"materials": [
+				"acacia",
+				"bamboo",
+				"birch",
+				"cherry",
+				"crimson",
+				"dark_oak",
+				"jungle",
+				"mangrove",
+				"oak",
+				"spruce",
+				"warped"
+			],
+			"raw": "${1}_planks",
+			"variants": [
+				"${1}_slab",
+				"${1}_stairs"
+			]
+		}
+	]
+}

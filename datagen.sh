@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DRY=$1
-DATA=./materials.json
+DATA=./materials_test.json
 
 function dry_run(){
 	[ "$DRY" = "--dry" ]
@@ -70,16 +70,26 @@ function generate(){
 	recipes "$var_suffix";
 }
 
-dry_run || rm -r ./data
-jq <$DATA -c 'to_entries | .[] | [.key, .value.raw, .value.derivatives[]]' |
-while read -r entry;
+# dry_run || rm -r ./data
+
+function test(){
+	while [[ $# -gt 0 ]];
+	do
+		echo -n ":$1 "
+		shift;
+	done;
+	echo
+}
+
+jq <$DATA -c '
+	to_entries[] 
+	| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
+	| [.key, .mat, .raw, .vars[]]
+' | while read -r entry;
 do
 	echo "$entry" | jq '.[]' -r | tr -d '\r'| {
-		read -r base;
-		read -r raw;
-		while read -r var;
-		do
-			generate "$base" "$raw" "$var";
-		done;
+		args=()
+		while read -r a; do args+=("$a"); done
+		test "${args[@]}";
 	};
 done;
