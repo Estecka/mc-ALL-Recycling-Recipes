@@ -14,10 +14,10 @@
 				"spruce",
 				"warped"
 			],
-			"raw": "${1}_planks",
+			"raw": "%s_planks",
 			"variants": [
-				"${1}_slab",
-				"${1}_stairs"
+				"%s_slab",
+				"%s_stairs"
 			]
 		}
 	]
