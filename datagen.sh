@@ -1,8 +1,6 @@
 #!/bin/bash
 
 DRY=$1
-DATA=./materials.json
-
 function dry_run(){
 	[ "$DRY" = "--dry" ]
 }
@@ -49,6 +47,14 @@ function recipes(){
 	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
 	;;
 
+	%s_mosaic_slab)
+	IN=$RAW OUT=$VAR COUNT=2 cut;
+	;;
+
+	%s_mosaic_stairs)
+	IN=$RAW OUT=$VAR COUNT=1 cut;
+	;;
+
 	*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=1 cut;
@@ -79,17 +85,23 @@ function generate(){
 	done;
 }
 
-dry_run || rm -r ./data/*
+function parse(){
+	jq <$1 -c '
+		to_entries[] 
+		| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
+		| [.key, .mat, .raw//"%s", .vars[]]
+	' | while read -r entry;
+	do
+		echo "$entry" | jq '.[]' -r | tr -d '\r'| {
+			args=();
+			while read -r a; do args+=("$a"); done
+			generate "${args[@]}";
+		} || return;
+	done;
+}
 
-jq <$DATA -c '
-	to_entries[] 
-	| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
-	| [.key, .mat, .raw//"%s", .vars[]]
-' | while read -r entry;
+dry_run || rm -r ./data/*
+for f in ./materials/*
 do
-	echo "$entry" | jq '.[]' -r | tr -d '\r'| {
-		args=();
-		while read -r a; do args+=("$a"); done
-		generate "${args[@]}";
-	} || exit;
+	parse "$f"
 done;

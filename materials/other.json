@@ -1,0 +1,21 @@
+{
+	"minecraft":[
+		{
+			"materials": ["nether"],
+			"raw": "%s_bricks",
+			"variants": [
+				"%s_brick_fence"
+			]
+		},
+		{
+			"materials": [
+				"polished_blackstone",
+				"stone"
+			],
+			"variants":[
+				"%s_button",
+				"%s_pressure_plate"
+			]
+		}
+	]
+}
