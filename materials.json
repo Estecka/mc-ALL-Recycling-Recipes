@@ -42,7 +42,6 @@
 				"red_sandstone",
 				"sandstone"
 			],
-			"raw": "%s",
 			"variants": [
 				"%s_slab",
 				"%s_stairs",
@@ -89,7 +88,6 @@
 				"waxed_weathered_cut_copper",
 				"weathered_cut_copper"
 			],
-			"raw": "%s",
 			"variants": [
 				"%s_slab",
 				"%s_stairs"
@@ -111,7 +109,6 @@
 				"cut_sandstone",
 				"smooth_stone"
 			],
-			"raw": "%s",
 			"variants": [
 				"%s_slab"
 			]
@@ -140,7 +137,6 @@
 				"polished_blackstone",
 				"stone"
 			],
-			"raw": "%s",
 			"variants":[
 				"%s_button",
 				"%s_pressure_plate"

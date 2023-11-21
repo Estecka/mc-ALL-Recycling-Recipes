@@ -65,7 +65,7 @@ dry_run || rm -r ./data/*
 jq <$DATA -c '
 	to_entries[] 
 	| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
-	| [.key, .mat, .raw, .vars[]]
+	| [.key, .mat, .raw//"%s", .vars[]]
 ' | while read -r entry;
 do
 	echo "$entry" | jq '.[]' -r | tr -d '\r'| {
