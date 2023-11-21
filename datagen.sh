@@ -21,10 +21,21 @@ function uncraft(){
 
 function recipes(){
 	case $1 in
-	%s_slab)
-	IN=$RAW OUT=$VAR COUNT=2 cut;
-	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft
-	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
+	%s_wood|%s_hyphae)
+	IN=$VAR OUT=$RAW COUNT=1 cut;
+	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
+	;;
+
+	stripped_%s)
+	IN=$RAW OUT=$VAR COUNT=1 cut;
+	;;
+
+	waxed_%s)
+	IN=$VAR OUT=$RAW COUNT=1 cut;
+	;;
+
+	%scut_copper)
+	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft
 	;;
 
 	%s_brick_fence)
@@ -32,12 +43,10 @@ function recipes(){
 	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft
 	;;
 
-	waxed_%s)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	;;
-
-	%scut_copper)
-	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft
+	%s_slab)
+	IN=$RAW OUT=$VAR COUNT=2 cut;
+	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft
+	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
 	;;
 
 	*)
@@ -54,14 +63,16 @@ function generate(){
 	local raw_form=$3
 	shift 3;
 
-	export RAW=$(printf "$raw_form" "$radical");
+	RAW=$(printf "$raw_form" "$radical") || return;
+	export RAW;
 	export GROUP="$NAMESPACE:$RAW";
 
 	dry_run || mkdir -p "./data/$NAMESPACE/recipes/uncraft";
 	while [[ $# -gt 0 ]]
 	do
 		local var_form=$1
-		export VAR=$(printf "$var_form" "$radical");
+		VAR=$(printf "$var_form" "$radical") || return;
+		export VAR;
 		shift;
 		echo >&2 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR"
 		dry_run || recipes "$var_form";
@@ -80,5 +91,5 @@ do
 		args=();
 		while read -r a; do args+=("$a"); done
 		generate "${args[@]}";
-	};
+	} || exit;
 done;
