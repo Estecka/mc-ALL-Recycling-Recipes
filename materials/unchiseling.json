@@ -28,7 +28,7 @@
 		},
 		{
 			"materials":[
-				"${waxed_}${oxidation_}"
+				"${waxed_}${any_oxidation_}"
 			],
 			"raw": "%s${copper_block}",
 			"variants": ["%scut_copper"]

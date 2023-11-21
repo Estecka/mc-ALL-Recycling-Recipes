@@ -2,79 +2,40 @@
 	"minecraft":[
 		{
 			"materials":[
-				"copper"
+				"${copper_block}",
+				"${cut_copper_item}"
 			],
-			"raw": "%s_block",
 			"variants": [
-				"exposed_%s",
-				"weathered_%s",
-				"oxidized_%s",
-				"waxed_exposed_%s",
-				"waxed_weathered_%s",
-				"waxed_oxidized_%s"
+				"${waxed_}exposed_%s",
+				"${waxed_}weathered_%s",
+				"${waxed_}oxidized_%s"
 			]
 		},
 		{
 			"materials":[
-				"cut_copper_slab",
-				"cut_copper_stairs",
-				"cut_copper"
-			],
-			"variants": [
-				"exposed_%s",
-				"weathered_%s",
-				"oxidized_%s",
-				"waxed_exposed_%s",
-				"waxed_weathered_%s",
-				"waxed_oxidized_%s"
-			]
-		},
-		{
-			"materials":[
-				"copper",
-				"cut_copper_slab",
-				"cut_copper_stairs",
-				"cut_copper"
+				"${copper_block}",
+				"${cut_copper_item}"
 			],
 			"raw": "exposed_%s",
 			"variants": [
-				"weathered_%s",
-				"oxidized_%s",
-				"waxed_weathered_%s",
-				"waxed_oxidized_%s"
+				"${waxed_}weathered_%s",
+				"${waxed_}oxidized_%s"
 			]
 		},
 		{
 			"materials":[
-				"copper",
-				"cut_copper_slab",
-				"cut_copper_stairs",
-				"cut_copper"
+				"${copper_block}",
+				"${cut_copper_item}"
 			],
 			"raw": "weathered_%s",
 			"variants": [
-				"oxidized_%s",
-				"waxed_oxidized_%s"
+				"${waxed_}oxidized_%s"
 			]
 		},
 		{
 			"materials":[
-				"copper_block",
-				"exposed_copper",
-				"weathered_copper",
-				"oxidized_copper",
-				"cut_copper_slab",
-				"cut_copper_stairs",
-				"cut_copper",
-				"exposed_cut_copper_slab",
-				"exposed_cut_copper_stairs",
-				"exposed_cut_copper",
-				"weathered_cut_copper_slab",
-				"weathered_cut_copper_stairs",
-				"weathered_cut_copper",
-				"oxidized_cut_copper_slab",
-				"oxidized_cut_copper_stairs",
-				"oxidized_cut_copper"
+				"${any_oxidation_}${copper_block}",
+				"${any_oxidation_}${cut_copper_item}"
 			],
 			"variants": [
 				"waxed_%s"

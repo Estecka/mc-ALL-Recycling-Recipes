@@ -2,17 +2,9 @@
 	"minecraft":[
 		{
 			"materials": [
-				"acacia",
 				"bamboo",
-				"birch",
-				"cherry",
-				"crimson",
-				"dark_oak",
-				"jungle",
-				"mangrove",
-				"oak",
-				"spruce",
-				"warped"
+				"${ow_wooden}",
+				"${nether_wooden}"
 			],
 			"raw": "%s_planks",
 			"variants": [
@@ -49,27 +41,11 @@
 		},
 		{
 			"materials": [
-				"acacia_log",
 				"bamboo_block",
-				"birch_log",
-				"cherry_log",
-				"dark_oak_log",
-				"jungle_log",
-				"mangrove_log",
-				"oak_log",
-				"spruce_log",
-				"crimson_stem",
-				"warped_stem",
-				"acacia_wood",
-				"birch_wood",
-				"cherry_wood",
-				"dark_oak_wood",
-				"jungle_wood",
-				"mangrove_wood",
-				"oak_wood",
-				"spruce_wood",
-				"crimson_hyphae",
-				"warped_hyphae"
+				"${ow_wooden}_log",
+				"${nether_wooden}_stem",
+				"${ow_wooden}_wood",
+				"${nether_wooden}_hyphae"
 			],
 			"variants": [
 				"stripped_%s"
@@ -77,22 +53,7 @@
 		},
 		{
 			"materials": [
-				"acacia",
-				"birch",
-				"cherry",
-				"dark_oak",
-				"jungle",
-				"mangrove",
-				"oak",
-				"spruce",
-				"stripped_acacia",
-				"stripped_birch",
-				"stripped_cherry",
-				"stripped_dark_oak",
-				"stripped_jungle",
-				"stripped_mangrove",
-				"stripped_oak",
-				"stripped_spruce"
+				"${stripped_}${ow_wooden}"
 			],
 			"raw": "%s_log",
 			"variants": [
@@ -101,10 +62,7 @@
 		},
 		{
 			"materials": [
-				"crimson",
-				"warped",
-				"stripped_crimson",
-				"stripped_warped"
+				"${stripped_}${nether_wooden}"
 			],
 			"raw": "%s_stem",
 			"variants": [

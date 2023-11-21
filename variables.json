@@ -1,12 +1,35 @@
 {
-	"waxed_": [
-		"",
-		"waxed_"
+	"ow_wooden":[
+		"acacia",
+		"birch",
+		"cherry",
+		"dark_oak",
+		"jungle",
+		"mangrove",
+		"oak",
+		"spruce"
 	],
-	"oxidation_":[
+	"nether_wooden":[
+		"crimson",
+		"warped"
+	],
+	"stripped_":[
+		"",
+		"stripped_"
+	],
+	"cut_copper_item":[
+		"cut_copper",
+		"cut_copper_slab",
+		"cut_copper_stairs"
+	],
+	"any_oxidation_":[
 		"",
 		"exposed_",
 		"weathered_",
 		"oxidized_"
+	],
+	"waxed_": [
+		"",
+		"waxed_"
 	]
 }

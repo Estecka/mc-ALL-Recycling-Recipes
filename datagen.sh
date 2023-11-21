@@ -137,7 +137,12 @@ function parse(){
 			read -r nsp;
 			read -r mat;
 			read -r raw;
-			while read -r v; do vars+=("$v"); done
+			while read -r v;
+			do
+				while read -r pv;
+				do vars+=("$pv");
+				done < <(material_preprocessor "$v")
+			done
 
 			dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
 

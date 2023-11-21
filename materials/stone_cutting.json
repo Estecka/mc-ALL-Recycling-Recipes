@@ -51,7 +51,7 @@
 				"smooth_red_sandstone",
 				"smooth_sandstone",
 				"stone",
-				"${waxed_}${oxidation_}cut_copper"
+				"${waxed_}${any_oxidation_}cut_copper"
 			],
 			"variants": [
 				"%s_slab",
