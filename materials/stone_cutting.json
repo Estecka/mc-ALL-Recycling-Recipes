@@ -51,14 +51,7 @@
 				"smooth_red_sandstone",
 				"smooth_sandstone",
 				"stone",
-				"cut_copper",
-				"exposed_cut_copper",
-				"oxidized_cut_copper",
-				"weathered_cut_copper",
-				"waxed_cut_copper",
-				"waxed_exposed_cut_copper",
-				"waxed_oxidized_cut_copper",
-				"waxed_weathered_cut_copper"
+				"${waxed_}${oxidation_}cut_copper"
 			],
 			"variants": [
 				"%s_slab",

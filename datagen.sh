@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o pipefail;
+
 DRY=$1
 function dry_run(){
 	[ "$DRY" = "--dry" ]
@@ -65,21 +67,30 @@ function recipes(){
 	esac
 }
 
+function item_postprocess(){
+	mat=$(cat)
+	if [[ $mat = ?(waxed_)'${copper_block}' ]]
+	then copper_block='copper_block';
+	else copper_block='copper';
+	fi;
+	export copper_block;
+	envsubst <<<"$mat"
+}
+
 function generate(){
 	export NAMESPACE=$1
 	local radical=$2
 	local raw_form=$3
 	shift 3;
 
-	RAW=$(printf "$raw_form" "$radical") || return;
+	RAW=$(printf "$raw_form" "$radical" | item_postprocess) || return;
 	export RAW;
 	export GROUP="$NAMESPACE:$RAW";
 
-	dry_run || mkdir -p "./data/$NAMESPACE/recipes/uncraft";
 	while [[ $# -gt 0 ]]
 	do
 		local var_form=$1
-		VAR=$(printf "$var_form" "$radical") || return;
+		VAR=$(printf "$var_form" "$radical" | item_postprocess) || return;
 		export VAR;
 		shift;
 		echo >&2 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR"
@@ -87,23 +98,59 @@ function generate(){
 	done;
 }
 
+function recursive_envsubst() {
+	local key=$1
+	if [[ $# -gt 0 ]]
+	then
+		shift;
+		if ! jq <./variables.json -cbr -e 'has($key)' --arg key "$key" >/dev/null
+		then 
+			cat;
+		else
+			local input=$(cat);
+
+			jq <./variables.json -cbr '.[$key][]' --arg key "$key" \
+			| while read -r value
+			do
+				export $key=$value;
+				envsubst "\$$key" <<<$input | tr -d '\r'
+			done 
+		fi | recursive_envsubst "$@";
+	else
+		cat
+	fi
+}
+function material_preprocessor(){
+	local vars=$(envsubst -v "$1")
+	recursive_envsubst $vars <<<"$1"
+}
+
 function parse(){
-	jq <$1 -c '
+	jq <$1 -cb '
 		to_entries[] 
 		| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
 		| [.key, .mat, .raw//"%s", .vars[]]
 	' | while read -r entry;
 	do
-		echo "$entry" | jq '.[]' -r | tr -d '\r'| {
-			args=();
-			while read -r a; do args+=("$a"); done
-			generate "${args[@]}";
+		echo "$entry" | jq -cbr '.[]' | {
+			vars=();
+			read -r nsp;
+			read -r mat;
+			read -r raw;
+			while read -r v; do vars+=("$v"); done
+
+			dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
+
+			material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
+			do
+				generate "$nsp" "$pmat" "$praw" "${vars[@]}";
+			done
 		} || return;
 	done;
 }
 
 dry_run || rm -r ./data/*
-for f in ./materials/*
+for f in ./materials/*.json
 do
 	parse "$f"
 done;

@@ -28,22 +28,9 @@
 		},
 		{
 			"materials":[
-				"exposed_",
-				"oxidized_",
-				"weathered_",
-				"waxed_exposed_",
-				"waxed_oxidized_",
-				"waxed_weathered_"
+				"${waxed_}${oxidation_}"
 			],
-			"raw": "%scopper",
-			"variants": ["%scut_copper"]
-		},
-		{
-			"materials":[
-				"",
-				"waxed_"
-			],
-			"raw":"%scopper_block",
+			"raw": "%s${copper_block}",
 			"variants": ["%scut_copper"]
 		},
 		{
