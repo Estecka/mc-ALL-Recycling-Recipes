@@ -34,6 +34,7 @@ function recipes(){
 
 	*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
+	IN=$VAR OUT=$RAW COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
 	;;
 	esac
