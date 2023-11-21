@@ -19,42 +19,44 @@ function uncraft(){
 
 function recipes(){
 	case $1 in
+	# Bark to Logs
 	%s_wood|%s_hyphae)
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
 	;;
-
+	# Stripping
 	stripped_%s)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
 
+	# Planks to Mosaic
+	%s_mosaic_slab)
+	IN=$RAW OUT=$VAR COUNT=2 cut;
+	;;
+	%s_mosaic_stairs)
+	IN=$RAW OUT=$VAR COUNT=1 cut;
+	;;
+
+	# Copper
+	## Scrapping
 	waxed_*|exposed_%s|weathered_%s|oxidized_%s)
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	;;
-
+	## Uncutting
 	%scut_copper)
 	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft
 	;;
 
+	# Simple Shaping/Unshaping
 	%s_brick_fence)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft
 	;;
-
 	%s_slab)
 	IN=$RAW OUT=$VAR COUNT=2 cut;
 	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft
 	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
 	;;
-
-	%s_mosaic_slab)
-	IN=$RAW OUT=$VAR COUNT=2 cut;
-	;;
-
-	%s_mosaic_stairs)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	;;
-
 	*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=1 cut;
