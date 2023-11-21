@@ -2,8 +2,8 @@
 	"minecraft":[
 		{
 			"materials":[
-				"deepslate_brick",
-				"deepslate_nether_bricks",
+				"deepslate",
+				"nether_bricks",
 				"polished_blackstone",
 				"quartz_block",
 				"red_sandstone",
@@ -16,9 +16,10 @@
 		},
 		{
 			"materials":[
-				"deepslate_brick",
-				"deepslate_nether_bricks",
-				"polished_blackstone",
+				"deepslate_bricks",
+				"deepslate_tiles",
+				"nether_bricks",
+				"polished_blackstone_bricks",
 				"stone_bricks"
 			],
 			"variants":[

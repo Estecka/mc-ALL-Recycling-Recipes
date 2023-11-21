@@ -28,7 +28,7 @@ function recipes(){
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
 
-	waxed_%s)
+	waxed_*|exposed_%s|weathered_%s|oxidized_%s)
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	;;
 
