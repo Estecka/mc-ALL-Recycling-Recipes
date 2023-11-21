@@ -32,6 +32,14 @@ function recipes(){
 	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft
 	;;
 
+	waxed_%s)
+	IN=$RAW OUT=$VAR COUNT=1 cut;
+	;;
+
+	%scut_copper)
+	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft
+	;;
+
 	*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=1 cut;

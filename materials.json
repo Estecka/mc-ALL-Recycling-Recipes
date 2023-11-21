@@ -82,11 +82,11 @@
 				"cut_copper",
 				"exposed_cut_copper",
 				"oxidized_cut_copper",
+				"weathered_cut_copper",
 				"waxed_cut_copper",
 				"waxed_exposed_cut_copper",
 				"waxed_oxidized_cut_copper",
-				"waxed_weathered_cut_copper",
-				"weathered_cut_copper"
+				"waxed_weathered_cut_copper"
 			],
 			"variants": [
 				"%s_slab",
@@ -172,6 +172,45 @@
 			"raw": "%s_bricks",
 			"variants": [
 				"%s_brick_fence"
+			]
+		},
+		{
+			"materials":[
+				"copper_block",
+				"exposed_copper",
+				"oxidized_copper",
+				"weathered_copper",
+				"cut_copper",
+				"exposed_cut_copper",
+				"oxidized_cut_copper",
+				"weathered_cut_copper"
+			],
+			"variants": [
+				"waxed_%s"
+			]
+		},
+		{
+			"materials":[
+				"exposed_",
+				"oxidized_",
+				"weathered_",
+				"waxed_exposed_",
+				"waxed_oxidized_",
+				"waxed_weathered_"
+			],
+			"raw": "%scopper",
+			"variants": [
+				"%scut_copper"
+			]
+		},
+		{
+			"materials":[
+				"",
+				"waxed_"
+			],
+			"raw":"%scopper_block",
+			"variants": [
+				"%scut_copper"
 			]
 		}
 	]
