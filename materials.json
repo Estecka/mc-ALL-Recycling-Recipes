@@ -105,6 +105,31 @@
 		},
 		{
 			"materials":[
+				"deepslate_brick",
+				"deepslate_nether_bricks",
+				"polished_blackstone",
+				"quartz_block",
+				"red_sandstone",
+				"sandstone",
+				"stone_bricks"
+			],
+			"variants":[
+				"chiseled_%s"
+			]
+		},
+		{
+			"materials":[
+				"deepslate_brick",
+				"deepslate_nether_bricks",
+				"polished_blackstone",
+				"stone_bricks"
+			],
+			"variants":[
+				"cracked_%s"
+			]
+		},
+		{
+			"materials":[
 				"cut_red_sandstone",
 				"cut_sandstone",
 				"smooth_stone"
@@ -114,10 +139,7 @@
 			]
 		},
 		{
-			"materials":[
-				"purpur",
-				"quartz"
-			],
+			"materials":["purpur"],
 			"raw":"%s_block",
 			"variants":[
 				"%s_pillar",
@@ -129,6 +151,9 @@
 			"materials":["quartz"],
 			"raw":"%s_block",
 			"variants":[
+				"%s_pillar",
+				"%s_slab",
+				"%s_stairs",
 				"%s_bricks"
 			]
 		},
