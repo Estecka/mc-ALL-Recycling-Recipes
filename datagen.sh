@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DRY=$1
-DATA=./materials_test.json
+DATA=./materials.json
 
 function dry_run(){
 	[ "$DRY" = "--dry" ]
@@ -59,7 +59,7 @@ function generate(){
 	done;
 }
 
-dry_run || rm -r ./data
+dry_run || rm -r ./data/*
 
 jq <$DATA -c '
 	to_entries[] 
