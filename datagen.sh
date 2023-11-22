@@ -10,7 +10,7 @@ dry_run() { return 1; }
 clean() { return 1; }
 no_clobber() { return 1; }
 
-while [[ $1 =~ --[a-zA-Z-]+ ]];
+while [[ $1 =~ --[a-zA-Z-]+ ]]
 do
 	case $1 in
 	--dry)
@@ -26,7 +26,7 @@ do
 	echo >&2 "[warn] Unsupported option: $1";
 	;;
 	esac
-	shift
+	shift;
 done;
 
 
@@ -39,22 +39,22 @@ function write_file(){
 	then
 		echo >&2 "File exists: $1";
 		no_clobber && return 1;
-	fi
+	fi;
 
-	echo >>"$FILE_CACHE" $1
-	envsubst >"$1"
+	echo >>"$FILE_CACHE" $1;
+	envsubst >"$1";
 }
 
 function cut(){
-	export OUTPUT="$NAMESPACE:$OUT"
-	export  INPUT="$NAMESPACE:$IN"
-	write_file <./templates/cut.json "./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json"
+	export OUTPUT="$NAMESPACE:$OUT";
+	export  INPUT="$NAMESPACE:$IN";
+	write_file <./templates/cut.json "./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
 }
 
 function uncraft(){
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	write_file <"./templates/craft_$COST.json" "./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json"
+	write_file <"./templates/craft_$COST.json" "./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
 }
 
 function recipes(){
@@ -62,7 +62,7 @@ function recipes(){
 	# Bark to Logs
 	%s_wood|%s_hyphae)
 	IN=$VAR OUT=$RAW COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
+	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft;
 	;;
 	# Stripping
 	stripped_*)
@@ -84,7 +84,7 @@ function recipes(){
 	;;
 	## Uncutting
 	%scut_copper)
-	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft
+	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft;
 	;;
 
 	# Simple Shaping/Unshaping
@@ -93,17 +93,17 @@ function recipes(){
 	;;
 	%s_brick_fence)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft
+	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft;
 	;;
 	%s_slab|%s_bars)
 	IN=$RAW OUT=$VAR COUNT=2 cut;
-	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft
-	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
+	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft;
+	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft;
 	;;
 	*) ## Default 1:1 recipes
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
+	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft;
 	;;
 	esac
 }
@@ -119,14 +119,14 @@ function item_postprocess(){
 	then copper_block='copper_block';
 	else copper_block='copper';
 	fi;
-	export copper_block;
-	envsubst <<<"$item"
+	export copper_block
+	envsubst <<<"$item";
 }
 
 function generate(){
-	export NAMESPACE=$1
-	local radical=$2
-	local raw_form=$3
+	export NAMESPACE=$1;
+	local radical=$2;
+	local raw_form=$3;
 	shift 3;
 
 	RAW=$(printf "$raw_form" "$radical" | item_postprocess) || return;
@@ -135,17 +135,17 @@ function generate(){
 
 	while [[ $# -gt 0 ]]
 	do
-		local var_form=$1
+		local var_form=$1;
 		VAR=$(printf "$var_form" "$radical" | item_postprocess) || return;
 		export VAR;
 		shift;
-		echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR"
+		echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR";
 		dry_run || recipes "$var_form" || return;
 	done;
 }
 
 function recursive_envsubst() {
-	local key=$1
+	local key=$1;
 	if [[ $# -gt 0 ]]
 	then
 		shift;
@@ -160,15 +160,15 @@ function recursive_envsubst() {
 			do
 				export $key=$value;
 				envsubst "\$$key" <<<$input | tr -d '\r'
-			done 
+			done;
 		fi | recursive_envsubst "$@";
 	else
 		cat
 	fi
 }
 function material_preprocessor(){
-	local vars=$(envsubst -v "$1")
-	recursive_envsubst $vars <<<"$1"
+	local vars=$(envsubst -v "$1");
+	recursive_envsubst $vars <<<"$1";
 }
 
 function parse(){
@@ -176,7 +176,7 @@ function parse(){
 		to_entries[] 
 		| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
 		| [.key, .mat, .raw//"%s", .vars[]]
-	' | while read -r entry;
+	' | while read -r entry
 	do
 		echo "$entry" | jq -cbr '.[]' | {
 			vars=();
@@ -185,17 +185,17 @@ function parse(){
 			read -r raw;
 			while read -r v;
 			do
-				while read -r pv;
+				while read -r pv
 				do vars+=("$pv");
-				done < <(material_preprocessor "$v")
-			done
+				done < <(material_preprocessor "$v");
+			done;
 
 			dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
 
 			material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 			do
 				generate "$nsp" "$pmat" "$praw" "${vars[@]}" || return;
-			done
+			done;
 		} || return;
 	done;
 }
@@ -205,10 +205,10 @@ function parse(){
 # # Main                                                                       #
 #******************************************************************************#
 
-materials=./materials/*.json
+materials=./materials/*.json;
 if [[ $# -gt 0 ]]
 then materials=$@;
-fi
+fi;
 
 if clean
 then
@@ -222,9 +222,9 @@ then
 else for f in $materials
 do
 	export FILE_CACHE="$f.cache";
-	dry_run || if [ "$f" -ot "$FILE_CACHE" ] 
+	dry_run || if [ "$f" -ot "$FILE_CACHE" ]
 	then
-		echo >&2 "$f: No changes, skipped."
+		echo >&2 "$f: No changes, skipped.";
 	else
 		if [ -f "$FILE_CACHE" ]
 		then
@@ -232,6 +232,6 @@ do
 			rm "$FILE_CACHE";
 		fi
 		parse "$f" || exit;
-	fi
+	fi;
 done
-fi
+fi;
