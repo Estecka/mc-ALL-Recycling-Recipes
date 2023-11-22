@@ -1,5 +1,5 @@
 {
-	"ow_wooden":[
+	"ow_wood":[
 		"acacia",
 		"birch",
 		"cherry",
@@ -9,7 +9,7 @@
 		"oak",
 		"spruce"
 	],
-	"nether_wooden":[
+	"nether_wood":[
 		"crimson",
 		"warped"
 	],

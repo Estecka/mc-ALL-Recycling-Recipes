@@ -28,7 +28,7 @@ function recipes(){
 	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
 	;;
 	# Stripping
-	stripped_%s)
+	stripped_*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
 

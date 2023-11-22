@@ -1,0 +1,52 @@
+{
+	"minecraft":[
+		{
+			"materials": [
+				"bamboo_block",
+				"${ow_wood}_log",
+				"${nether_wood}_stem",
+				"${ow_wood}_wood",
+				"${nether_wood}_hyphae"
+			],
+			"variants": [
+				"stripped_%s"
+			]
+		},
+		{
+			"materials": [
+				"${stripped_}${ow_wood}"
+			],
+			"raw": "%s_log",
+			"variants": [
+				"%s_wood"
+			]
+		},
+		{
+			"materials": [
+				"${stripped_}${nether_wood}"
+			],
+			"raw": "%s_stem",
+			"variants": [
+				"%s_hyphae"
+			]
+		},
+		{
+			"materials": [
+				"${ow_wood}"
+			],
+			"raw": "%s_wood",
+			"variants": [
+				"stripped_%s_log"
+			]
+		},
+		{
+			"materials": [
+				"${nether_wood}"
+			],
+			"raw": "%s_hyphae",
+			"variants": [
+				"stripped_%s_stem"
+			]
+		}
+	]
+}

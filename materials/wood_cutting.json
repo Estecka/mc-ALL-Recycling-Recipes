@@ -3,8 +3,8 @@
 		{
 			"materials": [
 				"bamboo",
-				"${ow_wooden}",
-				"${nether_wooden}"
+				"${ow_wood}",
+				"${nether_wood}"
 			],
 			"raw": "%s_planks",
 			"variants": [
@@ -37,36 +37,6 @@
 			"variants": [
 				"%s_slab",
 				"%s_stairs"
-			]
-		},
-		{
-			"materials": [
-				"bamboo_block",
-				"${ow_wooden}_log",
-				"${nether_wooden}_stem",
-				"${ow_wooden}_wood",
-				"${nether_wooden}_hyphae"
-			],
-			"variants": [
-				"stripped_%s"
-			]
-		},
-		{
-			"materials": [
-				"${stripped_}${ow_wooden}"
-			],
-			"raw": "%s_log",
-			"variants": [
-				"%s_wood"
-			]
-		},
-		{
-			"materials": [
-				"${stripped_}${nether_wooden}"
-			],
-			"raw": "%s_stem",
-			"variants": [
-				"%s_hyphae"
 			]
 		}
 	]
