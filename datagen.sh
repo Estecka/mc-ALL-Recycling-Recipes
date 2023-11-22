@@ -13,7 +13,7 @@ no_clobber() { return 1; }
 while [[ $1 =~ --[a-zA-Z-]+ ]]
 do
 	case $1 in
-	--dry)
+	--dry|--dry-run)
 	dry_run(){ return 0; }
 	;;
 	--no-clobber)
@@ -222,11 +222,11 @@ else for f in $materials
 do
 	export RECIPE_CACHE="$f.cache";
 	export RECIPE_LOG="$f.cache.tmp";
-	dry_run || if [ "$f" -ot "$RECIPE_CACHE" ]
+	if [ "$f" -ot "$RECIPE_CACHE" ]
 	then
 		echo >&2 "No changes, skipped: $f";
 	else
-		for c in $RECIPE_CACHE $RECIPE_LOG
+		dry_run || for c in $RECIPE_CACHE $RECIPE_LOG
 		do if [ -f "$c" ]
 		then
 			rm $(cat "$c");
@@ -234,7 +234,7 @@ do
 		fi
 		done;
 		parse "$f" || exit;
-		mv "$RECIPE_LOG" "$RECIPE_CACHE"
+		dry_run || mv "$RECIPE_LOG" "$RECIPE_CACHE"
 	fi;
 done
 fi;
