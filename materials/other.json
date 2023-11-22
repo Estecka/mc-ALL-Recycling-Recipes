@@ -9,11 +9,9 @@
 			"variants": ["cobblestone"]
 		},
 		{
-			"materials": ["nether"],
-			"raw": "%s_bricks",
-			"variants": [
-				"%s_brick_fence"
-			]
+			"materials": ["nether_brick"],
+			"raw": "%ss",
+			"variants": ["%s_fence"]
 		},
 		{
 			"materials": [

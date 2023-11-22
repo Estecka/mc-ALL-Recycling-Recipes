@@ -234,7 +234,9 @@ do
 		fi
 		done;
 		parse "$f" || exit;
-		dry_run || mv "$RECIPE_LOG" "$RECIPE_CACHE"
+		dry_run || mv "$RECIPE_LOG" "$RECIPE_CACHE";
 	fi;
 done
 fi;
+
+dry_run || cp -ruv ./hardcoded_data ./data/
