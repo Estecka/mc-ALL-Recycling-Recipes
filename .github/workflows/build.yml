@@ -11,6 +11,7 @@ jobs:
         uses: dcarbone/install-jq-action@v2.1.0
         with:
           version: "1.7" # Github's runners still use 1.6 as of writing.
+          force: true
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Make executable
