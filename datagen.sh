@@ -1,23 +1,60 @@
 #!/bin/bash
 
+#******************************************************************************#
+# # Config                                                                     #
+#******************************************************************************#
+
 set -o pipefail;
 
-DRY=$1
-function dry_run(){
-	[ "$DRY" = "--dry" ]
+dry_run() { return 1; }
+clean() { return 1; }
+no_clobber() { return 1; }
+
+while [[ $1 =~ --[a-zA-Z-]+ ]];
+do
+	case $1 in
+	--dry)
+	dry_run(){ return 0; }
+	;;
+	--no-clobber)
+	no_clobber(){ return 0; }
+	;;
+	--clean)
+	clean(){ return 0; }
+	;;
+	*)
+	echo >&2 "[warn] Unsupported option: $1";
+	;;
+	esac
+	shift
+done;
+
+
+#******************************************************************************#
+# # Recipes                                                                    #
+#******************************************************************************#
+
+function write_file(){
+	if [ -f "$1" ]
+	then
+		echo >&2 "File exists: $1";
+		no_clobber && return 1;
+	fi
+
+	echo >>"$FILE_CACHE" $1
+	envsubst >"$1"
 }
-dry_run && shift;
 
 function cut(){
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	envsubst <./templates/cut.json >"./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json"
+	write_file <./templates/cut.json "./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json"
 }
 
 function uncraft(){
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	envsubst <"./templates/craft_$COST.json" >"./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json"
+	write_file <"./templates/craft_$COST.json" "./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json"
 }
 
 function recipes(){
@@ -71,14 +108,19 @@ function recipes(){
 	esac
 }
 
+
+#******************************************************************************#
+# # Materials                                                                  #
+#******************************************************************************#
+
 function item_postprocess(){
-	mat=$(cat)
-	if [[ $mat = ?(waxed_)'${copper_block}' ]]
+	local item=$(cat)
+	if [[ $item = ?(waxed_)'${copper_block}' ]]
 	then copper_block='copper_block';
 	else copper_block='copper';
 	fi;
 	export copper_block;
-	envsubst <<<"$mat"
+	envsubst <<<"$item"
 }
 
 function generate(){
@@ -97,8 +139,8 @@ function generate(){
 		VAR=$(printf "$var_form" "$radical" | item_postprocess) || return;
 		export VAR;
 		shift;
-		echo >&2 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR"
-		dry_run || recipes "$var_form";
+		echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR"
+		dry_run || recipes "$var_form" || return;
 	done;
 }
 
@@ -152,20 +194,44 @@ function parse(){
 
 			material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 			do
-				generate "$nsp" "$pmat" "$praw" "${vars[@]}";
+				generate "$nsp" "$pmat" "$praw" "${vars[@]}" || return;
 			done
 		} || return;
 	done;
 }
 
-dry_run || rm -r ./data/*
+
+#******************************************************************************#
+# # Main                                                                       #
+#******************************************************************************#
 
 materials=./materials/*.json
 if [[ $# -gt 0 ]]
-then materials=$@
+then materials=$@;
 fi
 
-for f in $materials
+if clean
+then
+	if dry_run
+	then
+		find ./data/* -type f;
+	else
+		rm -r ./data/*;
+		rm ./materials/*.json.cache;
+	fi;
+else for f in $materials
 do
-	parse "$f"
-done;
+	export FILE_CACHE="$f.cache";
+	dry_run || if [ "$f" -ot "$FILE_CACHE" ] 
+	then
+		echo >&2 "$f: No changes, skipped."
+	else
+		if [ -f "$FILE_CACHE" ]
+		then
+			rm $(cat "$FILE_CACHE");
+			rm "$FILE_CACHE";
+		fi
+		parse "$f" || exit;
+	fi
+done
+fi
