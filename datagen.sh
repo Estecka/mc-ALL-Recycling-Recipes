@@ -29,7 +29,6 @@ do
 	shift;
 done;
 
-
 #******************************************************************************#
 # # Recipes                                                                    #
 #******************************************************************************#
@@ -41,7 +40,7 @@ function write_file(){
 		no_clobber && return 1;
 	fi;
 
-	echo >>"$FILE_CACHE" $1;
+	echo >>"$RECIPE_LOG" $1;
 	envsubst >"$1";
 }
 
@@ -221,17 +220,21 @@ then
 	fi;
 else for f in $materials
 do
-	export FILE_CACHE="$f.cache";
-	dry_run || if [ "$f" -ot "$FILE_CACHE" ]
+	export RECIPE_CACHE="$f.cache";
+	export RECIPE_LOG="$f.cache.tmp";
+	dry_run || if [ "$f" -ot "$RECIPE_CACHE" ]
 	then
-		echo >&2 "$f: No changes, skipped.";
+		echo >&2 "No changes, skipped: $f";
 	else
-		if [ -f "$FILE_CACHE" ]
+		for c in $RECIPE_CACHE $RECIPE_LOG
+		do if [ -f "$c" ]
 		then
-			rm $(cat "$FILE_CACHE");
-			rm "$FILE_CACHE";
+			rm $(cat "$c");
+			rm "$c";
 		fi
+		done;
 		parse "$f" || exit;
+		mv "$RECIPE_LOG" "$RECIPE_CACHE"
 	fi;
 done
 fi;
