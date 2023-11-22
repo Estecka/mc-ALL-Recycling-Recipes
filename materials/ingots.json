@@ -1,0 +1,22 @@
+{
+	"minecraft": [
+		{
+			"materials":["iron"],
+			"raw":"%s_ingot",
+			"variants":[
+				"%s_bars",
+				"chain",
+				"%s_door",
+				"heavy_weighted_pressure_plate",
+				"%s_trapdoor"
+			]
+		},
+		{
+			"materials":["gold"],
+			"raw":"%s_ingot",
+			"variants":[
+				"light_weighted_pressure_plate"
+			]
+		}
+	]
+}

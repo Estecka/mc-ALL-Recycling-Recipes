@@ -6,6 +6,7 @@ DRY=$1
 function dry_run(){
 	[ "$DRY" = "--dry" ]
 }
+dry_run && shift;
 
 function cut(){
 	export OUTPUT="$NAMESPACE:$OUT"
@@ -50,16 +51,19 @@ function recipes(){
 	;;
 
 	# Simple Shaping/Unshaping
+	cobble*)
+	IN=$RAW OUT=$VAR COUNT=1 cut;
+	;;
 	%s_brick_fence)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft
 	;;
-	%s_slab)
+	%s_slab|%s_bars)
 	IN=$RAW OUT=$VAR COUNT=2 cut;
 	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft
 	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft
 	;;
-	*)
+	*) ## Default 1:1 recipes
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft
@@ -155,7 +159,13 @@ function parse(){
 }
 
 dry_run || rm -r ./data/*
-for f in ./materials/*.json
+
+materials=./materials/*.json
+if [[ $# -gt 0 ]]
+then materials=$@
+fi
+
+for f in $materials
 do
 	parse "$f"
 done;

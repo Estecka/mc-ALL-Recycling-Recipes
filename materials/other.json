@@ -1,6 +1,14 @@
 {
 	"minecraft":[
 		{
+			"materials": ["deepslate"],
+			"variants": ["cobbled_deepslate"]
+		},
+		{
+			"materials": ["stone"],
+			"variants": ["cobblestone"]
+		},
+		{
 			"materials": ["nether"],
 			"raw": "%s_bricks",
 			"variants": [
