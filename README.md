@@ -7,7 +7,7 @@ Feel free to use the generator to create and publish your own datapack, but plea
 ## Usage
 `datagen.sh` will generate all the recipe files. The program [`jq`](https://jqlang.github.io/jq/) is required for this step.
 - `--dry` Parses the recipe without making any modification to the file system.
-- `--clean` Removes all generated and cached data before running. Does nothing in dry runs.
+- `--clean` Removes all generated data and caches. Does nothing in dry runs.
 - `--no-clobber` Causes the script to fail if it would overwrite an existing file.
 
 `pack.sh` will bundle the datapack into a zip file. This step is not strictly required; instead, the repository itself can be used as the datapack.
