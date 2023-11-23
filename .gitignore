@@ -3,3 +3,6 @@
 
 *.tar.gz
 *.zip
+*.log
+*.cache
+*.cache.tmp

@@ -1,0 +1,93 @@
+{
+	"minecraft": [
+		{
+			"materials": [
+				"andesite",
+				"blackstone",
+				"cobbled_deepslate",
+				"cobblestone",
+				"diorite",
+				"granite",
+				"mossy_cobblestone",
+				"polished_blackstone",
+				"polished_deepslate",
+				"prismarine",
+				"red_sandstone",
+				"sandstone"
+			],
+			"variants": [
+				"%s_slab",
+				"%s_stairs",
+				"%s_wall"
+			]
+		},
+		{
+			"materials":[
+				"brick",
+				"deepslate_brick",
+				"deepslate_tile",
+				"end_stone_brick",
+				"mossy_stone_brick",
+				"mud_brick",
+				"nether_brick",
+				"polished_blackstone_brick",
+				"red_nether_brick",
+				"stone_brick"
+			],
+			"raw": "%ss",
+			"variants": [
+				"%s_slab",
+				"%s_stairs",
+				"%s_wall"
+			]
+		},
+		{
+			"materials": [
+				"dark_prismarine",
+				"polished_andesite",
+				"polished_diorite",
+				"polished_granite",
+				"smooth_quartz",
+				"smooth_red_sandstone",
+				"smooth_sandstone",
+				"stone",
+				"${waxed_}${any_oxidation_}cut_copper"
+			],
+			"variants": [
+				"%s_slab",
+				"%s_stairs"
+			]
+		},
+		{
+			"materials":[
+				"prismarine_brick"
+			],
+			"raw": "%ss",
+			"variants": [
+				"%s_slab",
+				"%s_stairs"
+			]
+		},
+		{
+			"materials":[
+				"purpur",
+				"quartz"
+			],
+			"raw":"%s_block",
+			"variants":[
+				"%s_slab",
+				"%s_stairs"
+			]
+		},
+		{
+			"materials":[
+				"cut_red_sandstone",
+				"cut_sandstone",
+				"smooth_stone"
+			],
+			"variants": [
+				"%s_slab"
+			]
+		}
+	]
+}

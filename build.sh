@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./datagen.sh && ./pack.sh "ALL-Recycling-Recipes.zip"
+./datagen.sh --no-clobber && ./pack.sh "ALL-Recycling-Recipes.zip"

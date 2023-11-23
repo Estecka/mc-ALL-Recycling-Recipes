@@ -1,0 +1,56 @@
+{
+	"minecraft":[
+		{
+			"materials":[
+				"deepslate",
+				"nether_bricks",
+				"polished_blackstone",
+				"quartz_block",
+				"red_sandstone",
+				"sandstone",
+				"stone_bricks"
+			],
+			"variants":[
+				"chiseled_%s"
+			]
+		},
+		{
+			"materials":[
+				"deepslate_bricks",
+				"deepslate_tiles",
+				"nether_bricks",
+				"polished_blackstone_bricks",
+				"stone_bricks"
+			],
+			"variants":[
+				"cracked_%s"
+			]
+		},
+		{
+			"materials":[
+				"${waxed_}${any_oxidation_}"
+			],
+			"raw": "%s${copper_block}",
+			"variants": ["%scut_copper"]
+		},
+		{
+			"materials":[
+				"purpur",
+				"quartz"
+			],
+			"raw":"%s_block",
+			"variants":[
+				"%s_pillar"
+			]
+		},
+		{
+			"materials":[
+				"quartz"
+			],
+			"raw":"%s_block",
+			"variants":[
+				"%s_bricks"
+			]
+		}
+	]
+}

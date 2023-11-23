@@ -1,0 +1,43 @@
+{
+	"minecraft":[
+		{
+			"materials": [
+				"bamboo",
+				"${ow_wood}",
+				"${nether_wood}"
+			],
+			"raw": "%s_planks",
+			"variants": [
+				"%s_button",
+				"%s_door",
+				"%s_fence",
+				"%s_fence_gate",
+				"%s_pressure_plate",
+				"%s_sign",
+				"%s_slab",
+				"%s_stairs",
+				"%s_trapdoor"
+			]
+		},
+		{
+			"materials": [
+				"bamboo"
+			],
+			"raw": "%s_planks",
+			"variants": [
+				"%s_mosaic",
+				"%s_mosaic_slab",
+				"%s_mosaic_stairs"
+			]
+		},
+		{
+			"materials": [
+				"bamboo_mosaic"
+			],
+			"variants": [
+				"%s_slab",
+				"%s_stairs"
+			]
+		}
+	]
+}
