@@ -2,7 +2,6 @@
 	"minecraft":[
 		{
 			"materials":[
-				"deepslate",
 				"nether_bricks",
 				"polished_blackstone",
 				"quartz_block",
@@ -13,6 +12,11 @@
 			"variants":[
 				"chiseled_%s"
 			]
+		},
+		{
+			"materials":["deepslate"],
+			"raw":"cobbled_%s",
+			"variants":["chiseled_%s"]
 		},
 		{
 			"materials":[
