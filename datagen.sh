@@ -240,6 +240,6 @@ else
 			dry_run || mv "$RECIPE_LOG" "$RECIPE_CACHE";
 		fi;
 	done
-	dry_run || cp -ruv ./hardcoded_data ./data/
+	dry_run || cp -ruv ./hardcoded_data -T ./data
 fi;
 
