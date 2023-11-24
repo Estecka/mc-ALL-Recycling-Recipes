@@ -63,7 +63,7 @@ function recipes(){
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft;
 	;;
-	# Stripping
+	# Wood Stripping
 	stripped_*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
@@ -76,15 +76,15 @@ function recipes(){
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
 
-	# Copper-Scrapping
-	waxed_*|exposed_%s|weathered_%s|oxidized_%s)
+	# One-way recycling
+	waxed_*|exposed_%s|weathered_%s|oxidized_%s|smooth_%s|chiseled_polished_%s|polished_%s_bricks)
 	IN=$VAR OUT=$RAW COUNT=1 cut;
 	;;
-
-	# Simple Shaping/Unshaping
 	cobble*)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	;;
+
+	# Simple Shaping/Unshaping
 	%s_brick_fence)
 	IN=$RAW OUT=$VAR COUNT=1 cut;
 	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft;
