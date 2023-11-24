@@ -1,43 +1,63 @@
 {
-	"minecraft":[
-		{
-			"materials": [
-				"bamboo",
-				"${ow_wood}",
-				"${nether_wood}"
-			],
-			"raw": "%s_planks",
-			"variants": [
-				"%s_button",
-				"%s_door",
-				"%s_fence",
-				"%s_fence_gate",
-				"%s_pressure_plate",
-				"%s_sign",
-				"%s_slab",
-				"%s_stairs",
-				"%s_trapdoor"
-			]
-		},
-		{
-			"materials": [
-				"bamboo"
-			],
-			"raw": "%s_planks",
-			"variants": [
-				"%s_mosaic",
-				"%s_mosaic_slab",
-				"%s_mosaic_stairs"
-			]
-		},
-		{
-			"materials": [
-				"bamboo_mosaic"
-			],
-			"variants": [
-				"%s_slab",
-				"%s_stairs"
-			]
-		}
-	]
+	"recipes":{
+		"%s_mosaic_slab":[
+			["cut", 2]
+		],
+		"%s_mosaic_stairs":[
+			["cut", 1]
+		],
+		"%s_slab":[
+			["cut", 2],
+			["uncraft", "2h", 1],
+			["uncraft", "4", 2]
+		],
+		"*":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials": [
+					"bamboo",
+					"${ow_wood}",
+					"${nether_wood}"
+				],
+				"raw": "%s_planks",
+				"variants": [
+					"%s_button",
+					"%s_door",
+					"%s_fence",
+					"%s_fence_gate",
+					"%s_pressure_plate",
+					"%s_sign",
+					"%s_slab",
+					"%s_stairs",
+					"%s_trapdoor"
+				]
+			},
+			{
+				"materials": [
+					"bamboo"
+				],
+				"raw": "%s_planks",
+				"variants": [
+					"%s_mosaic",
+					"%s_mosaic_slab",
+					"%s_mosaic_stairs"
+				]
+			},
+			{
+				"materials": [
+					"bamboo_mosaic"
+				],
+				"variants": [
+					"%s_slab",
+					"%s_stairs"
+				]
+			}
+		]
+	}
 }

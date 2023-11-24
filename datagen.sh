@@ -40,70 +40,53 @@ function write_file(){
 		no_clobber && return 1;
 	fi;
 
-	echo >>"$RECIPE_LOG" $1;
-	envsubst >"$1";
+	echo >&1 "$1";
+	if ! dry_run
+	then
+		echo >>"$RECIPE_LOG" "$1";
+		envsubst >"$1";
+	fi
 }
 
 function cut(){
+	local IN=$1 OUT=$2;
+	export COUNT=$3;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
 	write_file <./templates/cut.json "./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
 }
 
 function uncraft(){
+	local IN=$1 OUT=$2;
+	export COST=$3 COUNT=$4;
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
 	write_file <"./templates/craft_$COST.json" "./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
 }
 
 function recipes(){
-	case $1 in
-	# Bark to Logs
-	%s_wood|%s_hyphae)
-	IN=$VAR OUT=$RAW COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft;
-	;;
-	# Wood Stripping
-	stripped_*)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	;;
-
-	# Planks to Mosaic
-	%s_mosaic_slab)
-	IN=$RAW OUT=$VAR COUNT=2 cut;
-	;;
-	%s_mosaic_stairs)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	;;
-
-	# One-way recycling
-	waxed_*|exposed_%s|weathered_%s|oxidized_%s|smooth_%s|chiseled_polished_%s|polished_%s_bricks)
-	IN=$VAR OUT=$RAW COUNT=1 cut;
-	;;
-	cobble*)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	;;
-
-	# Simple Shaping/Unshaping
-	%s_brick_fence)
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=3 COST="4" uncraft;
-	;;
-	%s_bars|%scut_copper) ## 1:4 <-> 4:1
-	IN=$RAW OUT=$VAR COUNT=4 cut;
-	IN=$VAR OUT=$RAW COUNT=1 COST="4" uncraft;
-	;;
-	%s_slab) ## 1:2 <-> 2:1
-	IN=$RAW OUT=$VAR COUNT=2 cut;
-	IN=$VAR OUT=$RAW COUNT=1 COST="2h" uncraft;
-	IN=$VAR OUT=$RAW COUNT=2 COST="4" uncraft;
-	;;
-	*) ## Default 1:1 recipes
-	IN=$RAW OUT=$VAR COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=1 cut;
-	IN=$VAR OUT=$RAW COUNT=4 COST="4" uncraft;
-	;;
-	esac
+	for recipe in "${RECIPES[@]}"
+	do {
+		read -r -d ';' pattern;
+		[[ "$1" = $pattern ]] || continue;
+		local IFS=','
+		while read -r -d ';' type args
+		do case "$type" in
+			cut)
+			cut "$RAW" "$VAR" $args;
+			;;
+			uncut)
+			cut "$VAR" "$RAW" $args;
+			;;
+			uncraft)
+			uncraft "$VAR" "$RAW" $args;
+		esac
+		done;
+		return 0;
+	} <<<"$recipe;"
+	done;
+	echo >&2 "No recipe found for \"$1\" in $FILE";
+	return 1;
 }
 
 
@@ -137,8 +120,8 @@ function generate(){
 		VAR=$(printf "$var_form" "$radical" | item_postprocess);
 		export VAR;
 		shift;
-		echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR";
-		dry_run || recipes "$var_form";
+		# echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR";
+		recipes "$var_form";
 	done;
 }
 
@@ -171,31 +154,41 @@ function material_preprocessor(){
 
 function parse(){
 	jq <$1 -cb '
-		to_entries[] 
-		| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
-		| [.key, .mat, .raw//"%s", .vars[]]
-	' | while read -r entry
-	do
-		echo "$entry" | jq -cbr '.[]' | {
-			vars=();
-			read -r nsp;
-			read -r mat;
-			read -r raw;
-			while read -r v;
-			do
-				while read -r pv
-				do vars+=("$pv");
-				done < <(material_preprocessor "$v");
-			done;
+		.recipes,
+		(
+			.items | to_entries[] 
+			| foreach .value[] as $value ({key}; {key, raw:$value.raw, vars:$value.variants}; foreach $value.materials[] as $mat (.; .mat=$mat; .))
+			| [.key, .mat, .raw//"%s", .vars[]]
+		)
+	' | {
+		read -r r;
+		readarray -t -d $'\n' RECIPES < <(jq -cbr 'to_entries[] | [.key, (.value[]|join(",")), "" ] | join(";")' <<<"$r");
+		export RECIPES;
 
-			dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
+		while read -r entry
+		do
+			echo "$entry" | jq -cbr '.[]' | {
+				vars=();
+				read -r nsp;
+				read -r mat;
+				read -r raw;
+				while read -r v;
+				do
+					while read -r pv
+					do vars+=("$pv");
+					done < <(material_preprocessor "$v");
+				done;
 
-			material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
-			do
-				generate "$nsp" "$pmat" "$praw" "${vars[@]}";
-			done;
-		};
-	done;
+				dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
+
+				material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
+				do
+					generate "$nsp" "$pmat" "$praw" "${vars[@]}";
+				done;
+			};
+		done;
+		unset RECIPES;
+	};
 }
 
 
@@ -221,6 +214,7 @@ then
 else 
 	for f in $materials
 	do
+		export FILE="$f"
 		export RECIPE_CACHE="$f.cache";
 		export RECIPE_LOG="$f.cache.tmp";
 		if [ "$f" -ot "$RECIPE_CACHE" ]

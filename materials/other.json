@@ -1,19 +1,28 @@
 {
-	"minecraft":[
-		{
-			"materials": ["nether_brick"],
-			"raw": "%ss",
-			"variants": ["%s_fence"]
-		},
-		{
-			"materials": [
-				"polished_blackstone",
-				"stone"
-			],
-			"variants":[
-				"%s_button",
-				"%s_pressure_plate"
-			]
-		}
-	]
+	"recipes": {
+		"*":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials": ["nether_brick"],
+				"raw": "%ss",
+				"variants": ["%s_fence"]
+			},
+			{
+				"materials": [
+					"polished_blackstone",
+					"stone"
+				],
+				"variants":[
+					"%s_button",
+					"%s_pressure_plate"
+				]
+			}
+		]
+	}
 }
