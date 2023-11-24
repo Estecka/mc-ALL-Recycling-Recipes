@@ -1,0 +1,30 @@
+{
+	"minecraft":[
+		{
+			"materials": ["deepslate"],
+			"variants": ["cobbled_deepslate"]
+		},
+		{
+			"materials": ["stone", "smooth_stone"],
+			"variants": ["cobblestone"]
+		},
+		{
+			"materials":["quartz"],
+			"raw":"%s_block",
+			"variants":[
+				"smooth_%s"
+			]
+		},
+		{
+			"materials":[
+				"basalt",
+				"red_sandstone",
+				"sandstone",
+				"stone"
+			],
+			"variants":[
+				"smooth_%s"
+			]
+		}
+	]
+}
