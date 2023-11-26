@@ -51,6 +51,10 @@
 				]
 			},
 			{
+				"materials": ["basalt"],
+				"variants":["polished_%s"]
+			},
+			{
 				"materials":[
 					"deepslate_bricks",
 					"deepslate_tiles",
