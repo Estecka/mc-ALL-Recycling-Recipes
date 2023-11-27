@@ -1,45 +1,52 @@
 {
-	"minecraft":[
-		{
-			"materials":[
-				"${copper_block}",
-				"${cut_copper_item}"
-			],
-			"variants": [
-				"${waxed_}exposed_%s",
-				"${waxed_}weathered_%s",
-				"${waxed_}oxidized_%s"
-			]
-		},
-		{
-			"materials":[
-				"${copper_block}",
-				"${cut_copper_item}"
-			],
-			"raw": "exposed_%s",
-			"variants": [
-				"${waxed_}weathered_%s",
-				"${waxed_}oxidized_%s"
-			]
-		},
-		{
-			"materials":[
-				"${copper_block}",
-				"${cut_copper_item}"
-			],
-			"raw": "weathered_%s",
-			"variants": [
-				"${waxed_}oxidized_%s"
-			]
-		},
-		{
-			"materials":[
-				"${any_oxidation_}${copper_block}",
-				"${any_oxidation_}${cut_copper_item}"
-			],
-			"variants": [
-				"waxed_%s"
-			]
-		}
-	]
+	"recipes": {
+		"*":[
+			["uncut", 1]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials":[
+					"${copper_block}",
+					"${cut_copper_item}"
+				],
+				"variants": [
+					"${waxed_}exposed_%s",
+					"${waxed_}weathered_%s",
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${copper_block}",
+					"${cut_copper_item}"
+				],
+				"raw": "exposed_%s",
+				"variants": [
+					"${waxed_}weathered_%s",
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${copper_block}",
+					"${cut_copper_item}"
+				],
+				"raw": "weathered_%s",
+				"variants": [
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${any_oxidation_}${copper_block}",
+					"${any_oxidation_}${cut_copper_item}"
+				],
+				"variants": [
+					"waxed_%s"
+				]
+			}
+		]
+	}
 }
