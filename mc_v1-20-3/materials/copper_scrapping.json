@@ -1,0 +1,56 @@
+{
+	"recipes": {
+		"*":[
+			["uncut", 1]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials":[
+					"${full_copper_item}",
+					"chiseled_copper",
+					"copper_bulb"
+				],
+				"variants": [
+					"${waxed_}exposed_%s",
+					"${waxed_}weathered_%s",
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${full_copper_item}",
+					"chiseled_copper",
+					"copper_bulb"
+				],
+				"raw": "exposed_%s",
+				"variants": [
+					"${waxed_}weathered_%s",
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${full_copper_item}",
+					"chiseled_copper",
+					"copper_bulb"
+				],
+				"raw": "weathered_%s",
+				"variants": [
+					"${waxed_}oxidized_%s"
+				]
+			},
+			{
+				"materials":[
+					"${any_oxidation_}${full_copper_item}",
+					"${any_oxidation_}chiseled_copper",
+					"${any_oxidation_}copper_bulb"
+				],
+				"variants": [
+					"waxed_%s"
+				]
+			}
+		]
+	}
+}

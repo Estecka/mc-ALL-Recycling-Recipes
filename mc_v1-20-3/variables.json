@@ -1,0 +1,17 @@
+{
+	"_full_copper_item":[
+		"_door",
+		"_grate",
+		"_trapdoor"
+	],
+	"any_oxidation_":[
+		"",
+		"exposed_",
+		"weathered_",
+		"oxidized_"
+	],
+	"waxed_": [
+		"",
+		"waxed_"
+	]
+}

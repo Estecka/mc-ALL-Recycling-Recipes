@@ -1,5 +1,6 @@
 # Ignore generated data
 /data
+/*/data
 
 *.tar.gz
 *.zip

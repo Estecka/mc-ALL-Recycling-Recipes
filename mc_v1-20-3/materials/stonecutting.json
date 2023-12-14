@@ -1,0 +1,57 @@
+{
+	"recipes": {
+		"%s_slab":[
+			["uncraft", "2h", 1],
+			["uncraft", "4", 2]
+		],
+		"*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials": [
+					"tuff",
+					"polished_tuff"
+				],
+				"variants": [
+					"%s_slab",
+					"%s_stairs",
+					"%s_wall"
+				]
+			},
+			{
+				"materials": ["tuff_brick"],
+				"raw": "%ss",
+				"variants": [
+					"chiseled_%s",
+					"%s_slab",
+					"%s_stairs",
+					"%s_wall"
+				]
+			},
+			{
+				"materials": ["tuff"],
+				"variants": [
+					"chiseled_%s",
+					"polished_%s"
+				]
+			},
+			{
+				"materials": ["polished_tuff"],
+				"variants": ["tuff_bricks"]
+			},
+			{
+				"materials": ["${waxed_}${any_oxydation_}${copper_block}"],
+				"variants": ["%s${_full_copper_item}"]
+			},
+			{
+				"materials": ["${waxed_}${any_oxydation_}"],
+				"raw": "cut_copper",
+				"variants": ["%schiseled_copper"]
+			}
+		]
+	}
+}
