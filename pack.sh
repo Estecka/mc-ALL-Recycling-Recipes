@@ -10,6 +10,7 @@ fi
 rm "$file";
 zip "$file" -r \
 	data/ \
+	*/data/ \
 	pack.mcmeta \
 	pack.png \
 	;

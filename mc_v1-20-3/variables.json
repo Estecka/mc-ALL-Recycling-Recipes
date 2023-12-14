@@ -1,8 +1,8 @@
 {
-	"_full_copper_item":[
-		"_door",
-		"_grate",
-		"_trapdoor"
+	"full_copper_item":[
+		"copper_door",
+		"copper_grate",
+		"copper_trapdoor"
 	],
 	"any_oxidation_":[
 		"",

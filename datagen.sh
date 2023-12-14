@@ -53,7 +53,7 @@ function cut(){
 	export COUNT=$3;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
-	write_file <./templates/cut.json "./data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
+	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
 }
 
 function uncraft(){
@@ -61,7 +61,7 @@ function uncraft(){
 	export COST=$3 COUNT=$4;
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	write_file <"./templates/craft_$COST.json" "./data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
+	write_file <"./templates/craft_$COST.json" "$OVERLAY/data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
 }
 
 function recipes(){
@@ -130,13 +130,13 @@ function recursive_envsubst() {
 	then
 		local key=$1;
 		shift;
-		if ! jq <./variables.json -cbr -e 'has($key)' --arg key "$key" >/dev/null
+		if ! jq <"$OVERLAY/variables.json" -cbr -e 'has($key)' --arg key "$key" >/dev/null
 		then 
 			cat;
 		else
 			local input=$(cat);
 
-			jq <./variables.json -cbr '.[$key][]' --arg key "$key" \
+			jq <"$OVERLAY/variables.json" -cbr '.[$key][]' --arg key "$key" \
 			| while read -r value
 			do
 				export $key=$value;
@@ -179,7 +179,7 @@ function parse(){
 					done < <(material_preprocessor "$v");
 				done;
 
-				dry_run || mkdir -p "./data/$nsp/recipes/uncraft";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/uncraft";
 
 				material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 				do
@@ -196,7 +196,7 @@ function parse(){
 # # Main                                                                       #
 #******************************************************************************#
 
-materials=./materials/*.json;
+materials=./materials/*.json" "./*/materials/*.json;
 if [[ $# -gt 0 ]]
 then materials=$@;
 fi;
@@ -205,11 +205,11 @@ if clean
 then
 	if dry_run
 	then
-		find ./materials/*.json.cache;
-		find ./data/* -type f;
+		find ./materials/*.json.cache ./*/materials/*.json.cache;
+		find ./data/* ./*/data -type f;
 	else
-		rm -f ./materials/*.json.cache;
-		rm -rf ./data/*;
+		rm -f ./materials/*.json.cache ./*/materials/*.json.cache;
+		rm -rf ./*/data/*;
 	fi;
 else 
 	for f in $materials
@@ -217,6 +217,8 @@ else
 		export FILE="$f"
 		export RECIPE_CACHE="$f.cache";
 		export RECIPE_LOG="$f.cache.tmp";
+		export OVERLAY="$(dirname $(dirname $f))";
+
 		if [ "$f" -ot "$RECIPE_CACHE" ]
 		then
 			echo >&2 "No changes, skipped: $f";
@@ -232,6 +234,12 @@ else
 			dry_run || mv "$RECIPE_LOG" "$RECIPE_CACHE";
 		fi;
 	done
-	dry_run || cp -ruv ./hardcoded_data -T ./data
+
+	dry_run || for d in ./hardcoded_data ./*/hardcoded_data
+	do if [ -d "$d" ]
+	then
+		cp -ruv "$d" -T "$(dirname $d)/data";
+	fi
+	done;
 fi;
 
