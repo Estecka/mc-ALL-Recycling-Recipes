@@ -26,7 +26,7 @@
 				"materials": ["tuff_brick"],
 				"raw": "%ss",
 				"variants": [
-					"chiseled_%s",
+					"chiseled_%ss",
 					"%s_slab",
 					"%s_stairs",
 					"%s_wall"
@@ -44,12 +44,13 @@
 				"variants": ["tuff_bricks"]
 			},
 			{
-				"materials": ["${waxed_}${any_oxydation_}${copper_block}"],
-				"variants": ["%s${_full_copper_item}"]
+				"materials": ["${waxed_}${any_oxidation_}"],
+				"raw":"%s${copper_block}",
+				"variants": ["%s${full_copper_item}"]
 			},
 			{
-				"materials": ["${waxed_}${any_oxydation_}"],
-				"raw": "cut_copper",
+				"materials": ["${waxed_}${any_oxidation_}"],
+				"raw": "%scut_copper",
 				"variants": ["%schiseled_copper"]
 			}
 		]

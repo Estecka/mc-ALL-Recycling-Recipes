@@ -101,7 +101,7 @@ function item_postprocess(){
 	else copper_block='copper';
 	fi;
 	export copper_block
-	envsubst <<<"$item";
+	envsubst "\$copper_block"<<<"$item";
 }
 
 function generate(){
@@ -209,7 +209,7 @@ then
 		find ./data/* ./*/data -type f;
 	else
 		rm -f ./materials/*.json.cache ./*/materials/*.json.cache;
-		rm -rf ./*/data/*;
+		rm -rf ./data/* ./*/data/*;
 	fi;
 else 
 	for f in $materials
