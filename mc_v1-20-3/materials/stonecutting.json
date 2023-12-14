@@ -19,6 +19,7 @@
 			{
 				"materials": [
 					"tuff",
+					"tuff_brick(s)",
 					"polished_tuff"
 				],
 				"variants": [
@@ -28,21 +29,17 @@
 				]
 			},
 			{
-				"materials": ["tuff_brick"],
-				"raw": "%ss",
+				"materials": [
+					"tuff",
+					"tuff_bricks"
+				],
 				"variants": [
-					"chiseled_%ss",
-					"%s_slab",
-					"%s_stairs",
-					"%s_wall"
+					"chiseled_%s"
 				]
 			},
 			{
 				"materials": ["tuff"],
-				"variants": [
-					"chiseled_%s",
-					"polished_%s"
-				]
+				"variants": ["polished_tuff"]
 			},
 			{
 				"materials": ["polished_tuff"],

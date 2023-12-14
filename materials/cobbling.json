@@ -18,18 +18,12 @@
 				"variants": ["cobblestone"]
 			},
 			{
-				"materials":["quartz"],
-				"raw":"%s_block",
-				"variants":[
-					"smooth_%s"
-				]
-			},
-			{
 				"materials":[
 					"basalt",
 					"red_sandstone",
 					"sandstone",
-					"stone"
+					"stone",
+					"quartz(_block)"
 				],
 				"variants":[
 					"smooth_%s"
