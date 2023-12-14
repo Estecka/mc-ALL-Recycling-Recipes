@@ -13,9 +13,9 @@
 			{
 				"materials": [
 					"bamboo_block",
-					"${ow_wood}_log",
+					"${over_wood}_log",
 					"${nether_wood}_stem",
-					"${ow_wood}_wood",
+					"${over_wood}_wood",
 					"${nether_wood}_hyphae"
 				],
 				"variants": [
@@ -24,7 +24,7 @@
 			},
 			{
 				"materials": [
-					"${stripped_}${ow_wood}"
+					"${stripped_}${over_wood}"
 				],
 				"raw": "%s_log",
 				"variants": [
@@ -42,7 +42,7 @@
 			},
 			{
 				"materials": [
-					"${ow_wood}"
+					"${over_wood}"
 				],
 				"raw": "%s_wood",
 				"variants": [

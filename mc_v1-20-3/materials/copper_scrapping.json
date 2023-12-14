@@ -8,7 +8,7 @@
 		"minecraft":[
 			{
 				"materials":[
-					"${full_copper_item}",
+					"${copper_block_item}",
 					"chiseled_copper",
 					"copper_bulb"
 				],
@@ -20,7 +20,7 @@
 			},
 			{
 				"materials":[
-					"${full_copper_item}",
+					"${copper_block_item}",
 					"chiseled_copper",
 					"copper_bulb"
 				],
@@ -32,7 +32,7 @@
 			},
 			{
 				"materials":[
-					"${full_copper_item}",
+					"${copper_block_item}",
 					"chiseled_copper",
 					"copper_bulb"
 				],
@@ -43,7 +43,7 @@
 			},
 			{
 				"materials":[
-					"${any_oxidation_}${full_copper_item}",
+					"${any_oxidation_}${copper_block_item}",
 					"${any_oxidation_}chiseled_copper",
 					"${any_oxidation_}copper_bulb"
 				],
