@@ -4,6 +4,11 @@
 			["uncraft", "2h", 1],
 			["uncraft", "4", 2]
 		],
+		"*_@(door|grate|trapdoor)":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
 		"*":[
 			["uncut", 1],
 			["uncraft", "4", 4]
