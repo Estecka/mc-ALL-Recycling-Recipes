@@ -1,0 +1,31 @@
+{
+	"recipes": {
+		"*":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials": [
+					"${waxed_}${any_oxidation_}"
+				],
+				"raw": "%s${copper_block}",
+				"variants": [
+					"%s${copper_block_item}"
+				]
+			},
+			{
+				"materials": [
+					"${waxed_}${any_oxidation_}"
+				],
+				"raw":"%scut_copper",
+				"variants": [
+					"%s${cut_copper_item}"
+				]
+			}
+		]
+	}
+}

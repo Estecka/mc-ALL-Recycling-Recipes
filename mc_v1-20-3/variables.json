@@ -1,8 +1,11 @@
 {
 	"copper_block_item":[
 		"copper_door",
-		"copper_grate",
 		"copper_trapdoor"
+	],
+	"cut_copper_item":[
+		"copper_grate",
+		"chiseled_copper"
 	],
 	"any_oxidation_":[
 		"",

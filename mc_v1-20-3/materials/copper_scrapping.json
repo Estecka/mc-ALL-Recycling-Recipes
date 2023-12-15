@@ -9,7 +9,7 @@
 			{
 				"materials":[
 					"${copper_block_item}",
-					"chiseled_copper",
+					"${cut_copper_item}",
 					"copper_bulb"
 				],
 				"variants": [
@@ -21,7 +21,7 @@
 			{
 				"materials":[
 					"${copper_block_item}",
-					"chiseled_copper",
+					"${cut_copper_item}",
 					"copper_bulb"
 				],
 				"raw": "exposed_%s",
@@ -33,7 +33,7 @@
 			{
 				"materials":[
 					"${copper_block_item}",
-					"chiseled_copper",
+					"${cut_copper_item}",
 					"copper_bulb"
 				],
 				"raw": "weathered_%s",
@@ -44,7 +44,7 @@
 			{
 				"materials":[
 					"${any_oxidation_}${copper_block_item}",
-					"${any_oxidation_}chiseled_copper",
+					"${any_oxidation_}${cut_copper_item}",
 					"${any_oxidation_}copper_bulb"
 				],
 				"variants": [

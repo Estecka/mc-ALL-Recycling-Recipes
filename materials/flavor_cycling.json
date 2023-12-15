@@ -1,6 +1,6 @@
 {
-	"//": "Only some flavors are able to be uncrafted, because many would conflict with vanilla recipes.",
-	"//": "Only the leaf of a series can be uncrafted, which loops back to the root.",
+	"//": "Some flavors cannot be uncrafted, because many would conflict with vanilla recipes.",
+	"//": "Only the leaf of a series can be uncrafted, which loops back to the rawest material, instead of its direct parent.",
 	"recipes": {
 		"%scut_copper": [
 			["uncraft", "4", 1]
@@ -38,7 +38,7 @@
 			{
 				"materials":[
 					"end_stone",
-					"mud",
+					"(packed_)mud",
 					"quartz(_block)"
 				],
 				"variants":[
@@ -98,11 +98,11 @@
 				"materials":["blackstone"],
 				"variants":[
 					"polished_%s",
-					"(decraft)%s_bricks"
+					"(decraft)polished_%s_bricks"
 				]
 			},
 			{
-				"materials":["(polished_)blackstone"],
+				"materials":["polished_blackstone"],
 				"variants":[
 					"%s_bricks"
 				]

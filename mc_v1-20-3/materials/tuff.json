@@ -4,10 +4,8 @@
 			["uncraft", "2h", 1],
 			["uncraft", "4", 2]
 		],
-		"*_@(door|grate|trapdoor)":[
-			["cut", 1],
-			["uncut", 1],
-			["uncraft", "4", 4]
+		"(no-decraft)*":[
+			["uncut", 1]
 		],
 		"*":[
 			["uncut", 1],
@@ -39,22 +37,22 @@
 			},
 			{
 				"materials": [
-					"${waxed_}${any_oxidation_}"
+					"tuff"
 				],
-				"raw":"%s${copper_block}",
 				"variants": [
-					"%s${copper_block_item}"
+					"(no-decraft)polished_%s",
+					"%s_bricks"
 				]
 			},
 			{
 				"materials": [
-					"${waxed_}${any_oxidation_}"
+					"(polished_)tuff"
 				],
-				"raw": "%scut_copper",
 				"variants": [
-					"%schiseled_copper"
+					"(no-decraft)%s_bricks"
 				]
 			}
+			
 		]
 	}
 }
