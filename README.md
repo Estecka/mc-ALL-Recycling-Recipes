@@ -56,6 +56,7 @@ For example the material `"quartz(_block)"` is equivalent to the material `"quar
 
 This makes it possible to define a different raw form for a few select materials in the list or to define more complex raw forms.
 
+Using it in the variant list will change neither the raw or variant name of the final items. It can still change the recipe that is matched for this pair, because the parenthesis are still included when testing the recipe names.
 
 ### Pre-processed variables
 

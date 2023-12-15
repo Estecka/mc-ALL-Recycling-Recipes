@@ -1,5 +1,6 @@
 {
-	"//": "Unlike woodcutting, stonecutting only requires recycling recipes, as cutting recipes are already available in vanilla",
+	"//": "Revert shaped blocks to their cubic form.",
+	"//": "Unlike woodcutting, stonecutting only requires recycling recipes, because cutting recipes are already available in vanilla",
 	"recipes": {
 		"%s_slab":[
 			["uncraft", "2h", 1],
@@ -71,6 +72,42 @@
 				],
 				"variants": [
 					"%s_slab"
+				]
+			},
+			{
+				"materials":[
+					"(cobbled_)deepslate",
+					"polished_blackstone",
+					"nether_bricks",
+					"quartz_block",
+					"red_sandstone",
+					"sandstone",
+					"stone_bricks"
+				],
+				"variants":[
+					"chiseled_%s"
+				]
+			},
+			{
+				"materials":[
+					"deepslate_bricks",
+					"deepslate_tiles",
+					"nether_bricks",
+					"polished_blackstone_bricks",
+					"stone_bricks"
+				],
+				"variants":[
+					"cracked_%s"
+				]
+			},
+			{
+				"materials":[
+					"purpur",
+					"quartz"
+				],
+				"raw":"%s_block",
+				"variants":[
+					"%s_pillar"
 				]
 			}
 		]
