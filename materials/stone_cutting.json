@@ -1,4 +1,5 @@
 {
+	"//": "Unlike woodcutting, stonecutting only requires recycling recipes, as cutting recipes are already available in vanilla",
 	"recipes": {
 		"%s_slab":[
 			["uncraft", "2h", 1],

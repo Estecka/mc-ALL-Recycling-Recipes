@@ -38,14 +38,6 @@
 				]
 			},
 			{
-				"materials": ["tuff"],
-				"variants": ["polished_tuff"]
-			},
-			{
-				"materials": ["polished_tuff"],
-				"variants": ["tuff_bricks"]
-			},
-			{
 				"materials": [
 					"${waxed_}${any_oxidation_}"
 				],

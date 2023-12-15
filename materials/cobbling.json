@@ -1,21 +1,18 @@
 {
+	"//": "Recycling of items that require smelting for crafting.",
 	"recipes": {
-		"smooth_%s":[
+		"*":[
 			["uncut", 1]
-		],
-		"cobble*":[
-			["cut", 1]
 		]
 	},
 	"items": {
 		"minecraft":[
 			{
-				"materials": ["deepslate"],
-				"variants": ["cobbled_deepslate"]
-			},
-			{
-				"materials": ["stone", "smooth_stone"],
-				"variants": ["cobblestone"]
+				"materials": [
+					"(cobbled_)deepslate",
+					"(cobble)stone"
+				],
+				"variants": ["%s"]
 			},
 			{
 				"materials":[
@@ -23,6 +20,7 @@
 					"red_sandstone",
 					"sandstone",
 					"stone",
+					"(cobble)stone",
 					"quartz(_block)"
 				],
 				"variants":[

@@ -1,4 +1,5 @@
 {
+	"//": "Removal of wax and oxydation",
 	"recipes": {
 		"*":[
 			["uncut", 1]
