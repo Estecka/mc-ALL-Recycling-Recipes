@@ -1,0 +1,112 @@
+{
+	"//": "Some flavors cannot be uncrafted, because many would conflict with vanilla recipes.",
+	"//": "Only the leaf of a series can be uncrafted, which loops back to the rawest material, instead of its direct parent.",
+	"recipes": {
+		"%scut_copper": [
+			["uncraft", "4", 1]
+		],
+		"(decraft)*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
+		"*":[
+			["uncut", 1]
+		]
+	},
+	"items": {
+		"minecraft": [
+			{
+				"materials":[
+					"${waxed_}${any_oxidation_}"
+				],
+				"raw": "%s${copper_block}",
+				"variants": [
+					"%scut_copper"
+				]
+			},
+			{
+				"materials":[
+					"andesite",
+					"basalt",
+					"diorite",
+					"granite"
+				],
+				"variants":[
+					"(decraft)polished_%s"
+				]
+			},
+			{
+				"materials":[
+					"end_stone",
+					"(packed_)mud",
+					"quartz(_block)"
+				],
+				"variants":[
+					"(decraft)%s_bricks"
+				]
+			},
+			{
+				"materials":[
+					"red_sandstone",
+					"sandstone"
+				],
+				"variants":[
+					"(decraft)cut_%s"
+				]
+			},
+
+			{
+				"materials":["stone"],
+				"variants":[
+					"(decraft)%s_bricks",
+					"mossy_%s_bricks"
+				]
+			},
+			{
+				"materials":[
+					"cobblestone",
+					"stone_bricks"
+				],
+				"variants":[
+					"mossy_%s"
+				]
+			},
+
+			{
+				"materials":["(cobbled_)deepslate"],
+				"variants":[
+					"polished_%s",
+					"%s_bricks",
+					"(decraft)%s_tiles"
+				]
+			},
+			{
+				"materials":["(polished_)deepslate"],
+				"variants":[
+					"%s_bricks",
+					"%s_tiles"
+				]
+			},
+			{
+				"materials":["deepslate(_bricks)"],
+				"variants":[
+					"%s_tiles"
+				]
+			},
+
+			{
+				"materials":["blackstone"],
+				"variants":[
+					"polished_%s",
+					"(decraft)polished_%s_bricks"
+				]
+			},
+			{
+				"materials":["polished_blackstone"],
+				"variants":[
+					"%s_bricks"
+				]
+			}
+		]
+	}
+}

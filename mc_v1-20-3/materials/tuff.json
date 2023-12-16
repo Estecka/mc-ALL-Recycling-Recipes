@@ -1,0 +1,58 @@
+{
+	"recipes": {
+		"%s_slab":[
+			["uncraft", "2h", 1],
+			["uncraft", "4", 2]
+		],
+		"(no-decraft)*":[
+			["uncut", 1]
+		],
+		"*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		]
+	},
+	"items": {
+		"minecraft":[
+			{
+				"materials": [
+					"tuff",
+					"tuff_brick(s)",
+					"polished_tuff"
+				],
+				"variants": [
+					"%s_slab",
+					"%s_stairs",
+					"%s_wall"
+				]
+			},
+			{
+				"materials": [
+					"tuff",
+					"tuff_bricks"
+				],
+				"variants": [
+					"chiseled_%s"
+				]
+			},
+			{
+				"materials": [
+					"tuff"
+				],
+				"variants": [
+					"(no-decraft)polished_%s",
+					"%s_bricks"
+				]
+			},
+			{
+				"materials": [
+					"(polished_)tuff"
+				],
+				"variants": [
+					"(no-decraft)%s_bricks"
+				]
+			}
+			
+		]
+	}
+}

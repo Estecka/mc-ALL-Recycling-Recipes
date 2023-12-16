@@ -1,5 +1,4 @@
 {
-	"//": "Removal of wax and oxydation",
 	"recipes": {
 		"*":[
 			["uncut", 1]
@@ -9,8 +8,9 @@
 		"minecraft":[
 			{
 				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}"
+					"${copper_block_item}",
+					"${cut_copper_item}",
+					"copper_bulb"
 				],
 				"variants": [
 					"${waxed_}exposed_%s",
@@ -20,8 +20,9 @@
 			},
 			{
 				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}"
+					"${copper_block_item}",
+					"${cut_copper_item}",
+					"copper_bulb"
 				],
 				"raw": "exposed_%s",
 				"variants": [
@@ -31,8 +32,9 @@
 			},
 			{
 				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}"
+					"${copper_block_item}",
+					"${cut_copper_item}",
+					"copper_bulb"
 				],
 				"raw": "weathered_%s",
 				"variants": [
@@ -41,8 +43,9 @@
 			},
 			{
 				"materials":[
-					"${any_oxidation_}${copper_block}",
-					"${any_oxidation_}${cut_copper_item}"
+					"${any_oxidation_}${copper_block_item}",
+					"${any_oxidation_}${cut_copper_item}",
+					"${any_oxidation_}copper_bulb"
 				],
 				"variants": [
 					"waxed_%s"

@@ -9,8 +9,7 @@
 	"items": {
 		"minecraft":[
 			{
-				"materials": ["nether_brick"],
-				"raw": "%ss",
+				"materials": ["nether_brick(s)"],
 				"variants": ["%s_fence"]
 			},
 			{

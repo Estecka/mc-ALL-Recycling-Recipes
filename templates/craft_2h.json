@@ -5,9 +5,7 @@
 		"##"
 	],
 	"key": {
-		"#": [
-			{ "item": "${INPUT}" }
-		]
+		"#": { "item": "${INPUT}" }
 	},
 	"result": {
 		"item": "${OUTPUT}",

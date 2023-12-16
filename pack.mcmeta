@@ -1,10 +1,18 @@
 {
 	"pack":{
 		"pack_format": 12,
-		"supported_formats": [12, 18],
+		"supported_formats": [12, 26],
 		"description": [
 			"by ", {"text":"Estecka\n","color":"yellow"},
-			"v", {"text":"1.2.0","color":"gold"}
+			"v", {"text":"1.3.0","color":"gold"}
+		]
+	},
+	"overlays":{
+		"entries":[
+			{
+				"directory":"mc_v1-20-3",
+				"formats": [22, 26]
+			}
 		]
 	}
 }

@@ -1,4 +1,6 @@
 {
+	"//": "Revert shaped blocks to their cubic form.",
+	"//": "Unlike stonecutting, woodcutting requires both recycling and cutting recipes.",
 	"recipes":{
 		"%s_mosaic_slab":[
 			["cut", 2]
@@ -22,7 +24,7 @@
 			{
 				"materials": [
 					"bamboo",
-					"${ow_wood}",
+					"${over_wood}",
 					"${nether_wood}"
 				],
 				"raw": "%s_planks",

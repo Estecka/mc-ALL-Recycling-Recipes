@@ -1,0 +1,20 @@
+{
+	"copper_block_item":[
+		"copper_door",
+		"copper_trapdoor"
+	],
+	"cut_copper_item":[
+		"copper_grate",
+		"chiseled_copper"
+	],
+	"any_oxidation_":[
+		"",
+		"exposed_",
+		"weathered_",
+		"oxidized_"
+	],
+	"waxed_": [
+		"",
+		"waxed_"
+	]
+}

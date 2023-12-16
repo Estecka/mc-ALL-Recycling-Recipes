@@ -1,4 +1,6 @@
 {
+	"//": "Revert shaped blocks to their cubic form.",
+	"//": "Unlike woodcutting, stonecutting only requires recycling recipes, because cutting recipes are already available in vanilla",
 	"recipes": {
 		"%s_slab":[
 			["uncraft", "2h", 1],
@@ -24,28 +26,18 @@
 					"polished_deepslate",
 					"prismarine",
 					"red_sandstone",
-					"sandstone"
+					"sandstone",
+					"brick(s)",
+					"deepslate_brick(s)",
+					"deepslate_tile(s)",
+					"end_stone_brick(s)",
+					"mossy_stone_brick(s)",
+					"mud_brick(s)",
+					"nether_brick(s)",
+					"polished_blackstone_brick(s)",
+					"red_nether_brick(s)",
+					"stone_brick(s)"
 				],
-				"variants": [
-					"%s_slab",
-					"%s_stairs",
-					"%s_wall"
-				]
-			},
-			{
-				"materials":[
-					"brick",
-					"deepslate_brick",
-					"deepslate_tile",
-					"end_stone_brick",
-					"mossy_stone_brick",
-					"mud_brick",
-					"nether_brick",
-					"polished_blackstone_brick",
-					"red_nether_brick",
-					"stone_brick"
-				],
-				"raw": "%ss",
 				"variants": [
 					"%s_slab",
 					"%s_stairs",
@@ -62,30 +54,12 @@
 					"smooth_red_sandstone",
 					"smooth_sandstone",
 					"stone",
+					"prismarine_brick(s)",
+					"purpur(_block)",
+					"quartz(_block)",
 					"${waxed_}${any_oxidation_}cut_copper"
 				],
 				"variants": [
-					"%s_slab",
-					"%s_stairs"
-				]
-			},
-			{
-				"materials":[
-					"prismarine_brick"
-				],
-				"raw": "%ss",
-				"variants": [
-					"%s_slab",
-					"%s_stairs"
-				]
-			},
-			{
-				"materials":[
-					"purpur",
-					"quartz"
-				],
-				"raw":"%s_block",
-				"variants":[
 					"%s_slab",
 					"%s_stairs"
 				]
@@ -98,6 +72,42 @@
 				],
 				"variants": [
 					"%s_slab"
+				]
+			},
+			{
+				"materials":[
+					"(cobbled_)deepslate",
+					"polished_blackstone",
+					"nether_bricks",
+					"quartz_block",
+					"red_sandstone",
+					"sandstone",
+					"stone_bricks"
+				],
+				"variants":[
+					"chiseled_%s"
+				]
+			},
+			{
+				"materials":[
+					"deepslate_bricks",
+					"deepslate_tiles",
+					"nether_bricks",
+					"polished_blackstone_bricks",
+					"stone_bricks"
+				],
+				"variants":[
+					"cracked_%s"
+				]
+			},
+			{
+				"materials":[
+					"purpur",
+					"quartz"
+				],
+				"raw":"%s_block",
+				"variants":[
+					"%s_pillar"
 				]
 			}
 		]
