@@ -1,0 +1,41 @@
+{
+	"recipes":{
+		"%s_pane":[
+			["cut", 4],
+			["uncraft", "4", 1]
+		],
+		"*": [
+			["unsmelt", 1]
+		]
+	},
+	"items": {
+		"minecraft": [
+			{
+				"materials":[
+					"glass",
+					"${any_color}_stained_glass"
+				],
+				"variants":[
+					"%s_pane"
+				]
+			},
+			{
+				"materials":[
+					"glass",
+					"glass_pane"
+				],
+				"variants":[
+					"${any_color}_stained_%s"
+				]
+			},
+			{
+				"materials":[
+					"glass"
+				],
+				"variants":[
+					"tinted_%s"
+				]
+			}
+		]
+	}
+}
