@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:smelting",
+	"group": "${GROUP}",
+	"cookingtime": 200,
+	"experience": 0,
+	"ingredient": { "item": "${INPUT}" },
+	"result": "${OUTPUT}"
+}

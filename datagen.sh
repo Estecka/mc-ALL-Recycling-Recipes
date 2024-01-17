@@ -56,6 +56,13 @@ function cut(){
 	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
 }
 
+function smelt(){
+	local IN=$1 OUT=$2;
+	export OUTPUT="$NAMESPACE:$OUT";
+	export  INPUT="$NAMESPACE:$IN";
+	write_file <./templates/smelt.json "$OVERLAY/data/$NAMESPACE/recipes/unsmelt/${IN}.json";
+}
+
 function uncraft(){
 	local IN=$1 OUT=$2;
 	export COST=$3 COUNT=$4;
@@ -80,6 +87,9 @@ function recipes(){
 			;;
 			uncraft)
 			uncraft "$VAR" "$RAW" $args;
+			;;
+			unsmelt)
+			smelt "$VAR" "$RAW" $args;
 		esac
 		done;
 		return 0;
@@ -180,6 +190,7 @@ function parse(){
 				done;
 
 				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/uncraft";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/unsmelt";
 
 				material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 				do
