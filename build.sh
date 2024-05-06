@@ -1,3 +1,6 @@
 #!/bin/bash
 
-./datagen.sh --no-clobber && ./pack.sh "ALL-Recycling-Recipes.zip"
+./datagen.sh --no-clobber \
+&& echo >&2 "Packing..." \
+&& ./pack.sh >/dev/null "ALL-Recycling-Recipes.zip" \
+;
