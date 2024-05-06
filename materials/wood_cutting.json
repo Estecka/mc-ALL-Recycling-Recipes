@@ -13,6 +13,9 @@
 			["uncraft", "2h", 1],
 			["uncraft", "4", 2]
 		],
+		"%s_planks": [
+			["cut", 4]
+		],
 		"*":[
 			["cut", 1],
 			["uncut", 1],
@@ -21,6 +24,18 @@
 	},
 	"items": {
 		"minecraft":[
+			{
+				"materials": [
+					"(${stripped_})bamboo(_block)",
+					"(${stripped_})${over_wood}(_log)",
+					"(${stripped_})${nether_wood}(_stem)",
+					"(${stripped_})${over_wood}(_wood)",
+					"(${stripped_})${nether_wood}(_hyphae)"
+				],
+				"variants": [
+					"%s_planks"
+				]
+			},
 			{
 				"materials": [
 					"bamboo",
