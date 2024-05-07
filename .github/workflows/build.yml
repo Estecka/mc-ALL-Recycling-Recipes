@@ -13,13 +13,13 @@ jobs:
           version: "1.7" # Github's runners still use 1.6 as of writing.
           force: true
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Make executable
         run: chmod +x ./*.sh
       - name: Build
         run: ./build.sh
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Artifacts
           path: ./*.zip
