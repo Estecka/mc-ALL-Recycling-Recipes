@@ -11,7 +11,7 @@
 		"#-#"
 	],
 	"result": {
-		"item": "minecraft:nether_brick_fence",
+		"id": "minecraft:nether_brick_fence",
 		"count": 4
 	}
 }

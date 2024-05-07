@@ -3,6 +3,8 @@
 	"ingredient": {
 		"item": "${INPUT}"
 	},
-	"result": "${OUTPUT}",
-	"count": ${COUNT}
+	"result": {
+		"id": "${OUTPUT}",
+		"count": ${COUNT}
+	}
 }

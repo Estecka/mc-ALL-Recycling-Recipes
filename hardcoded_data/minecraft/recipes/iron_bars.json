@@ -10,7 +10,7 @@
 		"###"
 	],
 	"result": {
-		"item": "minecraft:iron_bars",
+		"id": "minecraft:iron_bars",
 		"count": 12
 	}
 }
