@@ -4,6 +4,13 @@
 			["cut", 4],
 			["uncraft", "4", 1]
 		],
+		"(cut)*":[
+			["cut", 1]
+		],
+		"(uncut)*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
 		"*":[
 			["cut", 1],
 			["uncut", 1],
@@ -21,6 +28,16 @@
 					"%s_door",
 					"heavy_weighted_pressure_plate",
 					"%s_trapdoor"
+				]
+			},
+			{
+				"materials":["copper"],
+				"raw":"%s_ingot",
+				"variants":[
+					"(cut)%s_door",
+					"(cut)%s_trapdoor",
+					"(uncut)${waxed_}${any_oxidation_}%s_door",
+					"(uncut)${waxed_}${any_oxidation_}%s_trapdoor"
 				]
 			},
 			{

@@ -5,6 +5,7 @@
 #******************************************************************************#
 
 set -eu -o pipefail;
+shopt -s nullglob;
 
 dry_run() { return 1; }
 clean() { return 1; }
@@ -53,14 +54,14 @@ function cut(){
 	export COUNT=$3;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
-	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
+	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipe/${OUT}_from_${IN}_stonecutting.json";
 }
 
 function smelt(){
 	local IN=$1 OUT=$2;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
-	write_file <./templates/smelt.json "$OVERLAY/data/$NAMESPACE/recipes/unsmelt/${IN}.json";
+	write_file <./templates/smelt.json "$OVERLAY/data/$NAMESPACE/recipe/unsmelt/${IN}.json";
 }
 
 function uncraft(){
@@ -68,7 +69,7 @@ function uncraft(){
 	export COST=$3 COUNT=$4;
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	write_file <"./templates/craft_$COST.json" "$OVERLAY/data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
+	write_file <"./templates/craft_$COST.json" "$OVERLAY/data/$NAMESPACE/recipe/uncraft/${IN}_$COST.json";
 }
 
 function recipes(){
@@ -120,14 +121,14 @@ function generate(){
 	local raw_form=$3;
 	shift 3;
 
-	RAW=$(printf "$raw_form" "$radical" | item_postprocess | sed -E 's/[()]*//g;t');
+	RAW=$(printf "$raw_form" "$radical" | sed -E 's/[()]*//g;t' | item_postprocess);
 	export RAW;
 	export GROUP="$NAMESPACE:$RAW";
 
 	while [[ $# -gt 0 ]]
 	do
 		local var_form=$1;
-		VAR=$(printf "$var_form" "$radical" | item_postprocess | sed -E 's/\([^()]*\)//g;t');
+		VAR=$(printf "$var_form" "$radical" | sed -E 's/\([^()]*\)//g;t' | item_postprocess);
 		export VAR;
 		shift;
 		# echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR";
@@ -189,8 +190,8 @@ function parse(){
 					done < <(material_preprocessor "$v");
 				done;
 
-				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/uncraft";
-				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/unsmelt";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipe/uncraft";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipe/unsmelt";
 
 				material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 				do
@@ -207,20 +208,23 @@ function parse(){
 # # Main                                                                       #
 #******************************************************************************#
 
-materials=./materials/*.json" "./*/materials/*.json;
+materials=./materials/*.json' './*/materials/*.json;
 if [[ $# -gt 0 ]]
 then materials=$@;
 fi;
 
 if clean
 then
+	caches=./materials/*.json.cache' './*/materials/*.json.cache' './materials/*.json.cache.tmp' './*/materials/*.json.cache.tmp
+	data=./data/*' './*/data/*;
+	
 	if dry_run
 	then
-		find ./materials/*.json.cache ./*/materials/*.json.cache;
-		find ./data/* ./*/data -type f;
+		find $caches;
+		find $data;
 	else
-		rm -f ./materials/*.json.cache ./*/materials/*.json.cache;
-		rm -rf ./data/* ./*/data/*;
+		rm $caches || :;
+		rm -r $data || :;
 	fi;
 else 
 	for f in $materials

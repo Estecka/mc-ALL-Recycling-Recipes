@@ -24,9 +24,11 @@
 					"mossy_cobblestone",
 					"polished_blackstone",
 					"polished_deepslate",
+					"polished_tuff",
 					"prismarine",
 					"red_sandstone",
 					"sandstone",
+					"tuff",
 					"brick(s)",
 					"deepslate_brick(s)",
 					"deepslate_tile(s)",
@@ -36,7 +38,8 @@
 					"nether_brick(s)",
 					"polished_blackstone_brick(s)",
 					"red_nether_brick(s)",
-					"stone_brick(s)"
+					"stone_brick(s)",
+					"tuff_brick(s)"
 				],
 				"variants": [
 					"%s_slab",
@@ -82,7 +85,9 @@
 					"quartz_block",
 					"red_sandstone",
 					"sandstone",
-					"stone_bricks"
+					"stone_bricks",
+					"tuff",
+					"tuff_bricks"
 				],
 				"variants":[
 					"chiseled_%s"
