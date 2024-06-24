@@ -5,6 +5,7 @@
 #******************************************************************************#
 
 set -eu -o pipefail;
+shopt -s nullglob;
 
 dry_run() { return 1; }
 clean() { return 1; }
@@ -207,20 +208,23 @@ function parse(){
 # # Main                                                                       #
 #******************************************************************************#
 
-materials=./materials/*.json #" "./*/materials/*.json;
+materials=./materials/*.json' './*/materials/*.json;
 if [[ $# -gt 0 ]]
 then materials=$@;
 fi;
 
 if clean
 then
+	caches=./materials/*.json.cache' './*/materials/*.json.cache' './materials/*.json.cache.tmp' './*/materials/*.json.cache.tmp
+	data=./data/*' './*/data/*;
+	
 	if dry_run
 	then
-		find ./materials/*.json.cache ./*/materials/*.json.cache ./materials/*.json.cache.tmp ./*/materials/*.json.cache.tmp;
-		find ./data/* ./*/data -type f;
+		find $caches;
+		find $data;
 	else
-		rm -f ./materials/*.json.cache ./*/materials/*.json.cache ./materials/*.json.cache.tmp ./*/materials/*.json.cache.tmp;
-		rm -rf ./data/* ./*/data/*;
+		rm $caches || :;
+		rm -r $data || :;
 	fi;
 else 
 	for f in $materials
