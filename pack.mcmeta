@@ -4,7 +4,7 @@
 		"supported_formats": [48, 48],
 		"description": [
 			"by ", {"text":"Estecka\n","color":"yellow"},
-			"v", {"text":"1.5.1","color":"gold"}, " for ", {"text":"1.21","color":"gold"}
+			"v", {"text":"1.6.0","color":"gold"}, " for ", {"text":"1.21","color":"gold"}
 		]
 	}
 }
