@@ -120,14 +120,14 @@ function generate(){
 	local raw_form=$3;
 	shift 3;
 
-	RAW=$(printf "$raw_form" "$radical" | item_postprocess | sed -E 's/[()]*//g;t');
+	RAW=$(printf "$raw_form" "$radical" | sed -E 's/[()]*//g;t' | item_postprocess);
 	export RAW;
 	export GROUP="$NAMESPACE:$RAW";
 
 	while [[ $# -gt 0 ]]
 	do
 		local var_form=$1;
-		VAR=$(printf "$var_form" "$radical" | item_postprocess | sed -E 's/\([^()]*\)//g;t');
+		VAR=$(printf "$var_form" "$radical" | sed -E 's/\([^()]*\)//g;t' | item_postprocess);
 		export VAR;
 		shift;
 		# echo >&1 "$NAMESPACE:$RAW <-> $NAMESPACE:$VAR";
