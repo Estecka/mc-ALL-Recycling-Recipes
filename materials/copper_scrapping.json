@@ -12,7 +12,9 @@
 				"materials":[
 					"${copper_block}",
 					"${cut_copper_item}",
-					"copper_bulb"
+					"copper_bulb",
+					"copper_door",
+					"copper_trapdoor"
 				],
 				"variants": [
 					"${waxed_}exposed_%s",
@@ -25,20 +27,24 @@
 				"materials":[
 					"${copper_block}",
 					"${cut_copper_item}",
-					"copper_bulb"
+					"copper_bulb",
+					"copper_door",
+					"copper_trapdoor"
 				],
 				"raw": "exposed_%s",
 				"variants": [
 					"${waxed_}weathered_%s",
-					"${waxed_}oxidized_%s",
-					"copper_bulb"
+					"${waxed_}oxidized_%s"
 				]
 			},
 			{
 				"//": "Weathered unwaxed from any greater oxidation",
 				"materials":[
 					"${copper_block}",
-					"${cut_copper_item}"
+					"${cut_copper_item}",
+					"copper_bulb",
+					"copper_door",
+					"copper_trapdoor"
 				],
 				"raw": "weathered_%s",
 				"variants": [
@@ -50,7 +56,9 @@
 				"materials":[
 					"${any_oxidation_}${copper_block}",
 					"${any_oxidation_}${cut_copper_item}",
-					"${any_oxidation_}copper_bulb"
+					"${any_oxidation_}copper_bulb",
+					"${any_oxidation_}copper_door",
+					"${any_oxidation_}copper_trapdoor"
 				],
 				"variants": [
 					"waxed_%s"
