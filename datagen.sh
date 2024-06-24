@@ -53,14 +53,14 @@ function cut(){
 	export COUNT=$3;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
-	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipes/${OUT}_from_${IN}_stonecutting.json";
+	write_file <./templates/cut.json "$OVERLAY/data/$NAMESPACE/recipe/${OUT}_from_${IN}_stonecutting.json";
 }
 
 function smelt(){
 	local IN=$1 OUT=$2;
 	export OUTPUT="$NAMESPACE:$OUT";
 	export  INPUT="$NAMESPACE:$IN";
-	write_file <./templates/smelt.json "$OVERLAY/data/$NAMESPACE/recipes/unsmelt/${IN}.json";
+	write_file <./templates/smelt.json "$OVERLAY/data/$NAMESPACE/recipe/unsmelt/${IN}.json";
 }
 
 function uncraft(){
@@ -68,7 +68,7 @@ function uncraft(){
 	export COST=$3 COUNT=$4;
 	export OUTPUT="$NAMESPACE:$OUT"
 	export  INPUT="$NAMESPACE:$IN"
-	write_file <"./templates/craft_$COST.json" "$OVERLAY/data/$NAMESPACE/recipes/uncraft/${IN}_$COST.json";
+	write_file <"./templates/craft_$COST.json" "$OVERLAY/data/$NAMESPACE/recipe/uncraft/${IN}_$COST.json";
 }
 
 function recipes(){
@@ -189,8 +189,8 @@ function parse(){
 					done < <(material_preprocessor "$v");
 				done;
 
-				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/uncraft";
-				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipes/unsmelt";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipe/uncraft";
+				dry_run || mkdir -p "$OVERLAY/data/$nsp/recipe/unsmelt";
 
 				material_preprocessor "$mat"$'\n'"$raw" | while read -r pmat && read -r praw
 				do
@@ -207,7 +207,7 @@ function parse(){
 # # Main                                                                       #
 #******************************************************************************#
 
-materials=./materials/*.json" "./*/materials/*.json;
+materials=./materials/*.json #" "./*/materials/*.json;
 if [[ $# -gt 0 ]]
 then materials=$@;
 fi;
@@ -216,10 +216,10 @@ if clean
 then
 	if dry_run
 	then
-		find ./materials/*.json.cache ./*/materials/*.json.cache;
+		find ./materials/*.json.cache ./*/materials/*.json.cache ./materials/*.json.cache.tmp ./*/materials/*.json.cache.tmp;
 		find ./data/* ./*/data -type f;
 	else
-		rm -f ./materials/*.json.cache ./*/materials/*.json.cache;
+		rm -f ./materials/*.json.cache ./*/materials/*.json.cache ./materials/*.json.cache.tmp ./*/materials/*.json.cache.tmp;
 		rm -rf ./data/* ./*/data/*;
 	fi;
 else 

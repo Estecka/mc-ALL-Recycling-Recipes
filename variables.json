@@ -20,7 +20,9 @@
 	"cut_copper_item":[
 		"cut_copper",
 		"cut_copper_slab",
-		"cut_copper_stairs"
+		"cut_copper_stairs",
+		"chiseled_copper",
+		"copper_grate"
 	],
 	"any_oxidation_":[
 		"",

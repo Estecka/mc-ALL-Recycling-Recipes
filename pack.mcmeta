@@ -6,13 +6,5 @@
 			"by ", {"text":"Estecka\n","color":"yellow"},
 			"v", {"text":"1.5.1","color":"gold"}, " for ", {"text":"1.21","color":"gold"}
 		]
-	},
-	"overlays":{
-		"entries":[
-			{
-				"directory":"mc_v1-20-3",
-				"formats": [48, 48]
-			}
-		]
 	}
 }

@@ -1,0 +1,38 @@
+{
+	"//": "A few exceptions from coppers.",
+	"recipes": {
+		"(1:1-docut)*":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
+		"(1:1-nocut)*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
+		"(1:4)*":[
+			["cut", 4]
+		]
+	},
+	"items": {
+		"minecraft": [
+			{
+				"materials": [
+					"${waxed_}${any_oxidation_}(cut_copper)"
+				],
+				"variants": [
+					"(1:1-docut)%scopper_grate",
+					"(1:1-nocut)%schiseled_copper"
+				]
+			},
+			{
+				"materials": [
+					"${waxed_}${any_oxidation_}(${copper_block})"
+				],
+				"variants": [
+					"(1:4)%scopper_grate"
+				]
+			}
+		]
+	}
+}

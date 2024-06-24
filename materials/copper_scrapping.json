@@ -8,9 +8,11 @@
 	"items": {
 		"minecraft":[
 			{
+				"//": "Clean unwaxed from any greater oxydation",
 				"materials":[
 					"${copper_block}",
-					"${cut_copper_item}"
+					"${cut_copper_item}",
+					"copper_bulb"
 				],
 				"variants": [
 					"${waxed_}exposed_%s",
@@ -19,17 +21,21 @@
 				]
 			},
 			{
+				"//": "Exposed unwaxed from any greater oxydation",
 				"materials":[
 					"${copper_block}",
-					"${cut_copper_item}"
+					"${cut_copper_item}",
+					"copper_bulb"
 				],
 				"raw": "exposed_%s",
 				"variants": [
 					"${waxed_}weathered_%s",
-					"${waxed_}oxidized_%s"
+					"${waxed_}oxidized_%s",
+					"copper_bulb"
 				]
 			},
 			{
+				"//": "Weathered unwaxed from any greater oxydation",
 				"materials":[
 					"${copper_block}",
 					"${cut_copper_item}"
@@ -40,9 +46,11 @@
 				]
 			},
 			{
+				"//": "Any-oxidation unwaxed from same-oxydation waxed",
 				"materials":[
 					"${any_oxidation_}${copper_block}",
-					"${any_oxidation_}${cut_copper_item}"
+					"${any_oxidation_}${cut_copper_item}",
+					"${any_oxidation_}copper_bulb"
 				],
 				"variants": [
 					"waxed_%s"

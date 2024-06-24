@@ -39,7 +39,8 @@
 				"materials":[
 					"end_stone",
 					"(packed_)mud",
-					"quartz(_block)"
+					"quartz(_block)",
+					"tuff"
 				],
 				"variants":[
 					"(decraft)%s_bricks"
@@ -99,6 +100,12 @@
 				"variants":[
 					"polished_%s",
 					"(decraft)polished_%s_bricks"
+				]
+			},
+			{
+				"materials":["tuff"],
+				"variants":[
+					"(decraft)polished_%s"
 				]
 			},
 			{
