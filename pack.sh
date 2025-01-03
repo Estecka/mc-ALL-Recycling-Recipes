@@ -8,7 +8,7 @@ else
 fi
 
 rm "$file";
-zip "$file" -r \
+zip -9 "$file" -r \
 	data/ \
 	*/data/ \
 	pack.mcmeta \
