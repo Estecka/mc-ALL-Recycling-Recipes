@@ -1,0 +1,22 @@
+{
+	"recipes":{
+		"*":[
+			["cut", 2],
+			["uncraft", "4", 2],
+			["uncraft", "2h", 1]
+		]
+	},
+	"items": {
+		"minecraft": [
+			{
+				"materials":[
+					"${any_color}"
+				],
+				"raw": "%s_wool",
+				"variants":[
+					"%s_carpet"
+				]
+			}
+		]
+	}
+}
