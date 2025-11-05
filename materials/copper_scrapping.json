@@ -9,13 +9,7 @@
 		"minecraft":[
 			{
 				"//": "Clean unwaxed from any greater oxidation",
-				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}",
-					"copper_bulb",
-					"copper_door",
-					"copper_trapdoor"
-				],
+				"materials":[ "${oxydable_item}" ],
 				"variants": [
 					"${waxed_}exposed_%s",
 					"${waxed_}weathered_%s",
@@ -24,13 +18,7 @@
 			},
 			{
 				"//": "Exposed unwaxed from any greater oxidation",
-				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}",
-					"copper_bulb",
-					"copper_door",
-					"copper_trapdoor"
-				],
+				"materials":[ "${oxydable_item}" ],
 				"raw": "exposed_%s",
 				"variants": [
 					"${waxed_}weathered_%s",
@@ -39,13 +27,7 @@
 			},
 			{
 				"//": "Weathered unwaxed from any greater oxidation",
-				"materials":[
-					"${copper_block}",
-					"${cut_copper_item}",
-					"copper_bulb",
-					"copper_door",
-					"copper_trapdoor"
-				],
+				"materials":[ "${oxydable_item}" ],
 				"raw": "weathered_%s",
 				"variants": [
 					"${waxed_}oxidized_%s"
@@ -53,13 +35,7 @@
 			},
 			{
 				"//": "Any-oxidation unwaxed from same-oxidation waxed",
-				"materials":[
-					"${any_oxidation_}${copper_block}",
-					"${any_oxidation_}${cut_copper_item}",
-					"${any_oxidation_}copper_bulb",
-					"${any_oxidation_}copper_door",
-					"${any_oxidation_}copper_trapdoor"
-				],
+				"materials":[ "${any_oxidation_}${oxydable_item}" ],
 				"variants": [
 					"waxed_%s"
 				]

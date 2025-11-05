@@ -1,16 +1,12 @@
 {
 	"pack":{
-		"pack_format": 57,
-		"supported_formats": [57, 81],
+		"pack_format": 88,
+		"min_format": 88,
+		"max_format": 88,
+
 		"description": [
-			"", {"text":"v1.8.0","color":"yellow"}, " for ", {"text":"MC 1.21.2-1.21.8\n","color":"yellow"},
+			"", {"text":"v1.9.0","color":"yellow"}, " for ", {"text":"MC 1.21.9-1.21.10\n","color":"yellow"},
 			"by ", {"text":"Estecka","color":"gold"}
 		]
-	},
-	"overlays": {
-		"entries": [{
-			"directory": "overlay_resin",
-			"formats": [61, 81]
-		}]
 	}
 }

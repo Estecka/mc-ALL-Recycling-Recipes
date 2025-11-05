@@ -25,6 +25,23 @@
 		"chiseled_copper",
 		"copper_grate"
 	],
+	"oxydable_item":[
+		"chiseled_copper",
+		"copper_bars",
+		"copper_bulb",
+		"copper_chain",
+		"copper_chest",
+		"copper_door",
+		"copper_golem_statue",
+		"copper_grate",
+		"copper_lantern",
+		"copper_trapdoor",
+		"cut_copper",
+		"cut_copper_slab",
+		"cut_copper_stairs",
+		"lightning_rod",
+		"${copper_block}"
+	],
 	"any_oxidation_":[
 		"",
 		"exposed_",

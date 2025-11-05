@@ -1,15 +1,25 @@
 {
 	"recipes":{
+		"(1:1-no-cut)*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
+		"(1:4-cut-only)*":[
+			["cut", 4]
+		],
+		"(1:4-no-cut)*":[
+			["uncraft", "4", 1]
+		],
+		"(1:1-cut-only)*":[
+			["cut", 1]
+		],
+		"(3:1)*":[
+			["uncut", 3],
+			["uncraft", "4", 12]
+		],
 		"%s_bars":[
 			["cut", 4],
 			["uncraft", "4", 1]
-		],
-		"(cut)*":[
-			["cut", 1]
-		],
-		"(uncut)*":[
-			["uncut", 1],
-			["uncraft", "4", 4]
 		],
 		"*":[
 			["cut", 1],
@@ -24,7 +34,7 @@
 				"raw":"%s_ingot",
 				"variants":[
 					"%s_bars",
-					"chain",
+					"%s_chain",
 					"%s_door",
 					"heavy_weighted_pressure_plate",
 					"%s_trapdoor"
@@ -34,10 +44,15 @@
 				"materials":["copper"],
 				"raw":"%s_ingot",
 				"variants":[
-					"(cut)%s_door",
-					"(cut)%s_trapdoor",
-					"(uncut)${waxed_}${any_oxidation_}%s_door",
-					"(uncut)${waxed_}${any_oxidation_}%s_trapdoor"
+					"(1:4-cut-only)%s_bars",
+					"(1:1-cut-only)%s_chain",
+					"(1:1-cut-only)%s_door",
+					"(1:1-cut-only)%s_trapdoor",
+					"(1:4-no-cut)${waxed_}${any_oxidation_}%s_bars",
+					"(1:1-no-cut)${waxed_}${any_oxidation_}%s_chain",
+					"(1:1-no-cut)${waxed_}${any_oxidation_}%s_door",
+					"(1:1-no-cut)${waxed_}${any_oxidation_}%s_trapdoor",
+					"(3:1)${waxed_}${any_oxidation_}lightning_rod"
 				]
 			},
 			{

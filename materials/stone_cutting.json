@@ -38,6 +38,7 @@
 					"nether_brick(s)",
 					"polished_blackstone_brick(s)",
 					"red_nether_brick(s)",
+					"resin_brick(s)",
 					"stone_brick(s)",
 					"tuff_brick(s)"
 				],
@@ -84,6 +85,7 @@
 					"nether_bricks",
 					"quartz_block",
 					"red_sandstone",
+					"resin_bricks",
 					"sandstone",
 					"stone_bricks",
 					"tuff",
