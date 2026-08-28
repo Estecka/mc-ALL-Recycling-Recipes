@@ -2,11 +2,20 @@
 	"pack":{
 		"pack_format": 88,
 		"min_format": 88,
-		"max_format": 94,
+		"max_format": 107,
 
 		"description": [
-			"", {"text":"v1.9.1","color":"yellow"}, " for ", {"text":"MC 1.21.9-1.21.11\n","color":"yellow"},
+			"", {"text":"v1.10.0","color":"yellow"}, " for ", {"text":"MC 1.21.9-26.2\n","color":"yellow"},
 			"by ", {"text":"Estecka","color":"gold"}
+		]
+	},
+	"overlays": {
+		"entries": [
+			{
+				"directory": "mc-26.2",
+				"min_format": 107,
+				"max_format": 999
+			}
 		]
 	}
 }

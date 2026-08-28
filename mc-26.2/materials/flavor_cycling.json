@@ -1,0 +1,36 @@
+{
+	"//": "Some flavors cannot be uncrafted, because many would conflict with vanilla recipes.",
+	"//": "Only the leaf of a series can be uncrafted, which loops back to the rawest material, instead of its direct parent.",
+	"recipes": {
+		"(decraft)*":[
+			["uncut", 1],
+			["uncraft", "4", 4]
+		],
+		"*":[
+			["uncut", 1]
+		]
+	},
+	"items": {
+		"minecraft": [
+			{
+				"materials":[
+					"cinnabar",
+					"sulfur"
+				],
+				"variants":[
+					"polished_%s",
+					"(decraft)%s_bricks"
+				]
+			},
+			{
+				"materials":[
+					"(polished_)cinnabar",
+					"(polished_)sulfur"
+				],
+				"variants":[
+					"%s_bricks"
+				]
+			}
+		]
+	}
+}
