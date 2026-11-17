@@ -1,11 +1,11 @@
 {
 	"pack":{
-		"pack_format": 88,
-		"min_format": 88,
-		"max_format": 107,
+		"pack_format": 121,
+		"min_format": 121,
+		"max_format": 121,
 
 		"description": [
-			"", {"text":"v1.11.0","color":"yellow"}, " for ", {"text":"MC 1.21.9-26.2\n","color":"yellow"},
+			"", {"text":"v1.12.0","color":"yellow"}, " for ", {"text":"MC 26.3\n","color":"yellow"},
 			"by ", {"text":"Estecka","color":"gold"}
 		]
 	},

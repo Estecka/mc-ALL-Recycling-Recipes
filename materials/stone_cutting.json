@@ -61,6 +61,7 @@
 					"prismarine_brick(s)",
 					"purpur(_block)",
 					"quartz(_block)",
+					"${any_color}_concrete",
 					"${waxed_}${any_oxidation_}cut_copper"
 				],
 				"variants": [

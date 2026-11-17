@@ -1,8 +1,14 @@
 {
 	"recipes":{
-		"*":[
+		"*_@(slab|carpet)":[
 			["cut", 2],
 			["uncraft", "4", 2],
+			["uncraft", "2h", 1]
+		],
+		"*":[
+			["cut", 1],
+			["uncut", 1],
+			["uncraft", "4", 4],
 			["uncraft", "2h", 1]
 		]
 	},
@@ -14,7 +20,10 @@
 				],
 				"raw": "%s_wool",
 				"variants":[
-					"%s_carpet"
+					"%s_carpet",
+					"%s_cushion",
+					"%s_wool_slab",
+					"%s_wool_stairs"
 				]
 			}
 		]
