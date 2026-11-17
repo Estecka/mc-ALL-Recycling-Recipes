@@ -57,6 +57,16 @@
 			},
 			{
 				"materials": [
+					"(stripped_)bamboo(_block)",
+					"(stripped_)${over_wood}(_log)",
+					"(stripped_)${nether_wood}(_stem)"
+				],
+				"variants": [
+					"%s_shelf"
+				]
+			},
+			{
+				"materials": [
 					"bamboo"
 				],
 				"raw": "%s_planks",
